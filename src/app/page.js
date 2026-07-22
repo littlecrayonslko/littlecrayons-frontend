@@ -26,6 +26,8 @@ import {
   FaCrow
 } from 'react-icons/fa';
 import Link from 'next/link';
+import Navbar from './components/navbar';
+import HeroSection from './components/herosection';
 
 export default function EnhancedPreschoolHomePage() {
   const [navOpen, setNavOpen] = useState(false);
@@ -224,7 +226,7 @@ export default function EnhancedPreschoolHomePage() {
       </div>
 
       {/* --- NAVIGATION BAR --- */}
-      <nav className="navbar navbar-expand-lg sticky-top bg-white border-bottom shadow-sm py-3">
+      {/* <nav className="navbar navbar-expand-lg sticky-top bg-white border-bottom shadow-sm py-3">
         <div className="container">
           <a className="navbar-brand d-flex align-items-center gap-2 fw-bold" href="#home" style={{ fontSize: '1.5rem', color: '#0F172A' }}>
             <div className="logo-float d-flex align-items-center justify-content-center rounded-circle" style={{ width: '42px', height: '42px', backgroundColor: '#EFF6FF' }}>
@@ -271,10 +273,13 @@ export default function EnhancedPreschoolHomePage() {
             </ul>
           </div>
         </div>
-      </nav>
+      </nav> */}
+
+        <Navbar />
+        <HeroSection />
 
       {/* --- HERO SECTION --- */}
-      <section id="home" className="py-5" style={{ background: 'linear-gradient(180deg, #EFF6FF 0%, #FAFAFA 100%)' }}>
+      {/* <section id="home" className="py-5" style={{ background: 'linear-gradient(180deg, #EFF6FF 0%, #FAFAFA 100%)' }}>
         <div className="container py-4">
           <div className="row align-items-center gy-5">
             <div className="col-lg-6">
@@ -309,7 +314,7 @@ export default function EnhancedPreschoolHomePage() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* --- ABOUT US BRIEF SECTION --- */}
       <section id="about" className="py-5 bg-white border-top border-bottom">
