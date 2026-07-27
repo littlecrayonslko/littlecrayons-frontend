@@ -24,132 +24,134 @@ import {
     FaCamera
 } from 'react-icons/fa';
 import Link from 'next/link';
+import PageBanner from '../components/PageBanner';
+import Navbar from '../components/navbar';
 
 // Static Data defined outside component (prevents React Compiler purity errors)
-const ACTIVITY_CATEGORIES = [
-    { id: 'all', label: 'All Activities' },
-    { id: 'arts', label: '🎨 Arts & Crafts' },
-    { id: 'stem', label: '🧪 STEM & Robotics' },
-    { id: 'sports', label: '⚽ Sports & Movement' },
-    { id: 'music', label: '🎵 Music & Drama' }
-];
+// const ACTIVITY_CATEGORIES = [
+//     { id: 'all', label: 'All Activities' },
+//     { id: 'arts', label: '🎨 Arts & Crafts' },
+//     { id: 'stem', label: '🧪 STEM & Robotics' },
+//     { id: 'sports', label: '⚽ Sports & Movement' },
+//     { id: 'music', label: '🎵 Music & Drama' }
+// ];
 
-const ACTIVITIES_LIST = [
-    {
-        id: 1,
-        title: "Finger Painting & Sensory Art",
-        category: "arts",
-        ageGroup: "Ages 2-4",
-        time: "Every Mon & Wed | 10:00 AM",
-        image: "https://images.unsplash.com/photo-1560421683-6856ea585c78?auto=format&fit=crop&w=800&q=80",
-        desc: "Children express imagination through tactile textures, color blending, and messy freedom in safe, washable environments."
-    },
-    {
-        id: 2,
-        title: "Junior Robotics & Lego Build",
-        category: "stem",
-        ageGroup: "Ages 4-6",
-        time: "Every Tue & Thu | 11:30 AM",
-        image: "https://images.unsplash.com/photo-1587654780291-39c9404d746b?auto=format&fit=crop&w=800&q=80",
-        desc: "Developing problem-solving and basic mechanical concepts with building blocks and simple motorized gears."
-    },
-    {
-        id: 3,
-        title: "Mini Olympians & Obstacle Course",
-        category: "sports",
-        ageGroup: "All Ages",
-        time: "Fridays | 9:30 AM",
-        image: "https://images.unsplash.com/photo-1596464716127-f2a82984de30?auto=format&fit=crop&w=800&q=80",
-        desc: "Outdoor physical agility tracks, balance games, and relay races designed to develop gross motor coordination."
-    },
-    {
-        id: 4,
-        title: "Rhythm Band & Singing Circle",
-        category: "music",
-        ageGroup: "Ages 2-5",
-        time: "Daily | 2:00 PM",
-        image: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=800&q=80",
-        desc: "Exploring musical scales, hand percussion, and rhythmic movement to boost auditory processing and confidence."
-    },
-    {
-        id: 5,
-        title: "Clay Sculpting & Pottery Fun",
-        category: "arts",
-        ageGroup: "Ages 3-6",
-        time: "Wednesdays | 1:30 PM",
-        image: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=800&q=80",
-        desc: "Enhancing fine motor precision and 3D artistic spatial awareness with non-toxic modeling clay."
-    },
-    {
-        id: 6,
-        title: "Little Gardeners Botanical Exploration",
-        category: "stem",
-        ageGroup: "Ages 3-6",
-        time: "Thursdays | 10:00 AM",
-        image: "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=800&q=80",
-        desc: "Planting seeds, observing root growth, and understanding ecosystems right in our school greenhouse."
-    }
-];
+// const ACTIVITIES_LIST = [
+//     {
+//         id: 1,
+//         title: "Finger Painting & Sensory Art",
+//         category: "arts",
+//         ageGroup: "Ages 2-4",
+//         time: "Every Mon & Wed | 10:00 AM",
+//         image: "https://images.unsplash.com/photo-1560421683-6856ea585c78?auto=format&fit=crop&w=800&q=80",
+//         desc: "Children express imagination through tactile textures, color blending, and messy freedom in safe, washable environments."
+//     },
+//     {
+//         id: 2,
+//         title: "Junior Robotics & Lego Build",
+//         category: "stem",
+//         ageGroup: "Ages 4-6",
+//         time: "Every Tue & Thu | 11:30 AM",
+//         image: "https://images.unsplash.com/photo-1587654780291-39c9404d746b?auto=format&fit=crop&w=800&q=80",
+//         desc: "Developing problem-solving and basic mechanical concepts with building blocks and simple motorized gears."
+//     },
+//     {
+//         id: 3,
+//         title: "Mini Olympians & Obstacle Course",
+//         category: "sports",
+//         ageGroup: "All Ages",
+//         time: "Fridays | 9:30 AM",
+//         image: "https://images.unsplash.com/photo-1596464716127-f2a82984de30?auto=format&fit=crop&w=800&q=80",
+//         desc: "Outdoor physical agility tracks, balance games, and relay races designed to develop gross motor coordination."
+//     },
+//     {
+//         id: 4,
+//         title: "Rhythm Band & Singing Circle",
+//         category: "music",
+//         ageGroup: "Ages 2-5",
+//         time: "Daily | 2:00 PM",
+//         image: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=800&q=80",
+//         desc: "Exploring musical scales, hand percussion, and rhythmic movement to boost auditory processing and confidence."
+//     },
+//     {
+//         id: 5,
+//         title: "Clay Sculpting & Pottery Fun",
+//         category: "arts",
+//         ageGroup: "Ages 3-6",
+//         time: "Wednesdays | 1:30 PM",
+//         image: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=800&q=80",
+//         desc: "Enhancing fine motor precision and 3D artistic spatial awareness with non-toxic modeling clay."
+//     },
+//     {
+//         id: 6,
+//         title: "Little Gardeners Botanical Exploration",
+//         category: "stem",
+//         ageGroup: "Ages 3-6",
+//         time: "Thursdays | 10:00 AM",
+//         image: "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=800&q=80",
+//         desc: "Planting seeds, observing root growth, and understanding ecosystems right in our school greenhouse."
+//     }
+// ];
 
-const GALLERY_PHOTOS = [
-    { id: 1, title: "Painting Wall Display", category: "Art", src: "https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?auto=format&fit=crop&w=800&q=80" },
-    { id: 2, title: "Outdoor Splash & Play Day", category: "Sports", src: "https://images.unsplash.com/photo-1472162072942-cd5147eb3902?auto=format&fit=crop&w=800&q=80" },
-    { id: 3, title: "Story Theater Performance", category: "Drama", src: "https://images.unsplash.com/photo-1485546246426-74dc88dec4d9?auto=format&fit=crop&w=800&q=80" },
-    { id: 4, title: "STEM Physics Track Lab", category: "STEM", src: "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=80" },
-    { id: 5, title: "Puppet Show Corner", category: "Arts", src: "https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=800&q=80" },
-    { id: 6, title: "Yoga & Stretching Class", category: "Sports", src: "https://images.unsplash.com/photo-1545205597-3d9d02c29597?auto=format&fit=crop&w=800&q=80" }
-];
+// const GALLERY_PHOTOS = [
+//     { id: 1, title: "Painting Wall Display", category: "Art", src: "https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?auto=format&fit=crop&w=800&q=80" },
+//     { id: 2, title: "Outdoor Splash & Play Day", category: "Sports", src: "https://images.unsplash.com/photo-1472162072942-cd5147eb3902?auto=format&fit=crop&w=800&q=80" },
+//     { id: 3, title: "Story Theater Performance", category: "Drama", src: "https://images.unsplash.com/photo-1485546246426-74dc88dec4d9?auto=format&fit=crop&w=800&q=80" },
+//     { id: 4, title: "STEM Physics Track Lab", category: "STEM", src: "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=80" },
+//     { id: 5, title: "Puppet Show Corner", category: "Arts", src: "https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=800&q=80" },
+//     { id: 6, title: "Yoga & Stretching Class", category: "Sports", src: "https://images.unsplash.com/photo-1545205597-3d9d02c29597?auto=format&fit=crop&w=800&q=80" }
+// ];
 
-const FEATURED_SLIDES = [
-    {
-        title: "Annual Science & Wonder Expo",
-        tag: "Upcoming Event",
-        desc: "A day filled with volcano eruptions, magnet challenges, and floating bubble shows presented by our young inventors!",
-        date: "October 15, 2026",
-        bg: "linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%)",
-        img: "https://images.unsplash.com/photo-1567168544813-cc03465b4fa8?auto=format&fit=crop&w=900&q=80"
-    },
-    {
-        title: "Autumn Costume & Drama Festival",
-        tag: "Parent Favorite",
-        desc: "Kids take the stage with creative story plays, custom-made costumes, and vibrant musical performances.",
-        date: "November 02, 2026",
-        bg: "linear-gradient(135deg, #D97706 0%, #B45309 100%)",
-        img: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=900&q=80"
-    },
-    {
-        title: "Mud Kitchen & Splash Carnival",
-        tag: "Outdoor Outdoor Play",
-        desc: "Sensory-rich messy play stations where children build mud pies, water wheels, and botanical potions.",
-        date: "Weekly Event",
-        bg: "linear-gradient(135deg, #059669 0%, #047857 100%)",
-        img: "https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?auto=format&fit=crop&w=900&q=80"
-    }
-];
+// const FEATURED_SLIDES = [
+//     {
+//         title: "Annual Science & Wonder Expo",
+//         tag: "Upcoming Event",
+//         desc: "A day filled with volcano eruptions, magnet challenges, and floating bubble shows presented by our young inventors!",
+//         date: "October 15, 2026",
+//         bg: "linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%)",
+//         img: "https://images.unsplash.com/photo-1567168544813-cc03465b4fa8?auto=format&fit=crop&w=900&q=80"
+//     },
+//     {
+//         title: "Autumn Costume & Drama Festival",
+//         tag: "Parent Favorite",
+//         desc: "Kids take the stage with creative story plays, custom-made costumes, and vibrant musical performances.",
+//         date: "November 02, 2026",
+//         bg: "linear-gradient(135deg, #D97706 0%, #B45309 100%)",
+//         img: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=900&q=80"
+//     },
+//     {
+//         title: "Mud Kitchen & Splash Carnival",
+//         tag: "Outdoor Outdoor Play",
+//         desc: "Sensory-rich messy play stations where children build mud pies, water wheels, and botanical potions.",
+//         date: "Weekly Event",
+//         bg: "linear-gradient(135deg, #059669 0%, #047857 100%)",
+//         img: "https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?auto=format&fit=crop&w=900&q=80"
+//     }
+// ];
 
 export default function ActivitiesPage() {
     const [navOpen, setNavOpen] = useState(false);
 
     // Filtering state for activities
-    const [selectedCategory, setSelectedCategory] = useState('all');
+    // const [selectedCategory, setSelectedCategory] = useState('all');
 
     // Slider state
-    const [currentSlide, setCurrentSlide] = useState(0);
+    // const [currentSlide, setCurrentSlide] = useState(0);
 
     // Lightbox Modal state
-    const [previewImage, setPreviewImage] = useState(null);
+    // const [previewImage, setPreviewImage] = useState(null);
 
-    const filteredActivities = selectedCategory === 'all'
-        ? ACTIVITIES_LIST
-        : ACTIVITIES_LIST.filter(act => act.category === selectedCategory);
+    // const filteredActivities = selectedCategory === 'all'
+    //     ? ACTIVITIES_LIST
+    //     : ACTIVITIES_LIST.filter(act => act.category === selectedCategory);
 
-    const nextSlide = () => {
-        setCurrentSlide((prev) => (prev + 1) % FEATURED_SLIDES.length);
-    };
+    // const nextSlide = () => {
+    //     setCurrentSlide((prev) => (prev + 1) % FEATURED_SLIDES.length);
+    // };
 
-    const prevSlide = () => {
-        setCurrentSlide((prev) => (prev - 1 + FEATURED_SLIDES.length) % FEATURED_SLIDES.length);
-    };
+    // const prevSlide = () => {
+    //     setCurrentSlide((prev) => (prev - 1 + FEATURED_SLIDES.length) % FEATURED_SLIDES.length);
+    // };
 
     return (
         <div style={{ fontFamily: 'system-ui, -apple-system, sans-serif', color: '#1E293B', backgroundColor: '#FAFAFA' }}>
@@ -266,58 +268,13 @@ export default function ActivitiesPage() {
                 ✨ Admissions for Academic Year 2026–2027 are now open. <a href="#contact" className="text-warning text-decoration-underline ms-2">Book a Campus Tour</a>
             </div>
 
-            {/* --- HEADER --- */}
-            <nav className="navbar navbar-expand-lg sticky-top bg-white border-bottom shadow-sm py-3">
-                <div className="container">
-                    <a className="navbar-brand d-flex align-items-center gap-2 fw-bold" href="/" style={{ fontSize: '1.5rem', color: '#0F172A' }}>
-                        <div className="logo-float d-flex align-items-center justify-content-center rounded-circle" style={{ width: '42px', height: '42px', backgroundColor: '#EFF6FF' }}>
-                            <FaGraduationCap size={24} color="#2563EB" />
-                        </div>
-                        <span>Little<span style={{ color: '#2563EB' }}>Sparks</span></span>
-                    </a>
+<Navbar />
 
-                    <button
-                        className="navbar-toggler border-0 shadow-none"
-                        type="button"
-                        onClick={() => setNavOpen(!navOpen)}
-                        aria-label="Toggle Navigation"
-                    >
-                        {navOpen ? <FaTimes size={24} color="#0F172A" /> : <FaBars size={24} color="#0F172A" />}
-                    </button>
-
-                    <div className={`collapse navbar-collapse ${navOpen ? 'show' : ''}`}>
-                        <ul className="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center gap-1">
-                            <li className="nav-item">
-                                <Link className="nav-item-link d-block" href="/">Home</Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link className="nav-item-link d-block" href="/about">About Us</Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link className="nav-item-link d-block" href="/program">Program</Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link className="nav-item-link d-block" href="/activity">activity</Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link className="nav-item-link d-block text-primary fw-bold" href="/contact">Contact</Link>
-                            </li>
-                            <li className="nav-item ms-lg-3 mt-2 mt-lg-0">
-                                <Link
-                                    href="/contact"
-                                    className="btn text-white fw-bold px-4 py-2 rounded-pill shadow-sm"
-                                    style={{ backgroundColor: '#2563EB', border: 'none' }}
-                                >
-                                    Enroll Today
-                                </Link>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
+            <h1 className="text-center">Activity</h1>
+            <PageBanner />
 
             {/* --- HERO SECTION --- */}
-            <section className="py-5" style={{ background: 'linear-gradient(180deg, #EFF6FF 0%, #FAFAFA 100%)' }}>
+            {/* <section className="py-5" style={{ background: 'linear-gradient(180deg, #EFF6FF 0%, #FAFAFA 100%)' }}>
                 <div className="container py-4">
                     <div className="row align-items-center gy-5">
                         <div className="col-lg-6">
@@ -354,10 +311,9 @@ export default function ActivitiesPage() {
                         </div>
                     </div>
                 </div>
-            </section>
+            </section> */}
 
-            {/* --- FEATURED EVENTS CAROUSEL / SLIDER --- */}
-            <section className="py-5" style={{ backgroundColor: '#F8FAFC' }}>
+            {/* <section className="py-5" style={{ backgroundColor: '#F8FAFC' }}>
                 <div className="container py-3">
                     <div className="text-center mb-4">
                         <h6 className="fw-bold text-uppercase text-primary" style={{ letterSpacing: '1.2px', fontSize: '0.85rem' }}>Special Highlights</h6>
@@ -394,7 +350,6 @@ export default function ActivitiesPage() {
                             </div>
                         </div>
 
-                        {/* Slider Navigation Arrows */}
                         <button
                             onClick={prevSlide}
                             aria-label="Previous Slide"
@@ -413,10 +368,9 @@ export default function ActivitiesPage() {
                         </button>
                     </div>
                 </div>
-            </section>
+            </section> */}
 
-            {/* --- FILTERABLE ACTIVITIES GRID --- */}
-            <section id="activities-grid" className="py-5 bg-white border-top border-bottom">
+            {/* <section id="activities-grid" className="py-5 bg-white border-top border-bottom">
                 <div className="container py-3">
                     <div className="text-center mb-4">
                         <h6 className="fw-bold text-uppercase text-primary" style={{ letterSpacing: '1.2px', fontSize: '0.85rem' }}>Daily Offerings</h6>
@@ -424,7 +378,6 @@ export default function ActivitiesPage() {
                         <p className="text-muted">Explore activities designed for creative, logical, and physical growth.</p>
                     </div>
 
-                    {/* Category Tabs */}
                     <div className="d-flex justify-content-center flex-wrap gap-2 mb-5">
                         {ACTIVITY_CATEGORIES.map((cat) => (
                             <button
@@ -437,7 +390,6 @@ export default function ActivitiesPage() {
                         ))}
                     </div>
 
-                    {/* Activity Cards */}
                     <div className="row g-4">
                         {filteredActivities.map((act) => (
                             <div key={act.id} className="col-lg-4 col-md-6">
@@ -471,10 +423,9 @@ export default function ActivitiesPage() {
                         ))}
                     </div>
                 </div>
-            </section>
+            </section> */}
 
-            {/* --- PHOTO GALLERY GRID WITH POPUP PREVIEW --- */}
-            <section id="photo-gallery" className="py-5" style={{ backgroundColor: '#F8FAFC' }}>
+            {/* <section id="photo-gallery" className="py-5" style={{ backgroundColor: '#F8FAFC' }}>
                 <div className="container py-3">
                     <div className="text-center mb-5">
                         <h6 className="fw-bold text-uppercase text-primary" style={{ letterSpacing: '1.2px', fontSize: '0.85rem' }}>Snapshots of Joy</h6>
@@ -505,10 +456,9 @@ export default function ActivitiesPage() {
                         ))}
                     </div>
                 </div>
-            </section>
+            </section> */}
 
-            {/* LIGHTBOX MODAL */}
-            {previewImage && (
+            {/* {previewImage && (
                 <div
                     className="position-fixed top-0 start-0 w-100 h-100 bg-dark bg-opacity-75 d-flex align-items-center justify-content-center p-3"
                     style={{ zIndex: 1050 }}
@@ -529,10 +479,9 @@ export default function ActivitiesPage() {
                         </div>
                     </div>
                 </div>
-            )}
+            )} */}
 
-            {/* --- WEEKLY TIMELINE SCHEDULE --- */}
-            <section className="py-5 bg-white border-top border-bottom">
+            {/* <section className="py-5 bg-white border-top border-bottom">
                 <div className="container py-3">
                     <div className="text-center mb-5">
                         <h6 className="fw-bold text-uppercase text-primary" style={{ letterSpacing: '1.2px', fontSize: '0.85rem' }}>Daily Rhythm</h6>
@@ -585,7 +534,7 @@ export default function ActivitiesPage() {
                         </div>
                     </div>
                 </div>
-            </section>
+            </section> */}
 
             {/* --- FOOTER --- */}
             <footer id="contact" style={{ backgroundColor: '#0F172A', color: '#94A3B8' }} className="pt-5 pb-4">

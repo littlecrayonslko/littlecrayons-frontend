@@ -198,7 +198,7 @@ export default function AboutUsPage() {
         </div>
       </nav> */}
       <Navbar />
-      <h1 className="text-center">About Us</h1>
+      <h1 className="text-center">Daycare</h1>
       <PageBanner />
 
       {/* --- ABOUT HERO SECTION --- */}
