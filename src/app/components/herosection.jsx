@@ -4,7 +4,7 @@ import React from "react";
 export default function HeroSection({
   bgColor = "#2563EB",
   heroImage = "http://www.littlecrayons.org/images/slider.png",
-  secondImage = "/kids.jpeg", // Image inside the public folder
+  secondImage = "/kids.jpeg", // your second image
 }) {
   return (
     <>
@@ -14,15 +14,25 @@ export default function HeroSection({
         style={{
           backgroundColor: bgColor,
           paddingTop: "60px",
-          paddingBottom: "0",
+          paddingBottom: "0px",
+          width: "100%",
         }}
       >
+        <div
+          className="position-absolute top-0 start-0 w-100 overflow-hidden"
+          style={{ lineHeight: 0, zIndex: 10, pointerEvents: "none" }}
+        >
+          <svg
+            viewBox="0 0 1440 90"
+            preserveAspectRatio="none"
+            className="position-relative d-block w-100"
+            style={{ height: "55px" }}
+          ></svg>
+        </div>
+
         <style>{`
           .hero-container {
-            background-image: radial-gradient(
-              rgba(255, 255, 255, 0.18) 1.5px,
-              transparent 0
-            );
+            background-image: radial-gradient(rgba(255, 255, 255, 0.18) 1.5px, transparent 0);
             background-size: 28px 28px;
           }
 
@@ -34,7 +44,7 @@ export default function HeroSection({
             display: block;
           }
 
-          .second-banner {
+          .full-width-image {
             width: 100%;
             height: auto;
             display: block;
@@ -42,24 +52,25 @@ export default function HeroSection({
           }
         `}</style>
 
-        {/* First Hero Image */}
-        <div className="w-100 text-center">
-          <img
-            src={heroImage}
-            alt="Hero Banner"
-            className="full-hero-image"
-          />
+        <div className="w-100 text-center position-relative" style={{ zIndex: 2 }}>
+          {heroImage && (
+            <img
+              src={heroImage}
+              alt="Hero Banner"
+              className="full-hero-image mx-auto"
+            />
+          )}
         </div>
       </div>
 
       {/* Second Full Width Image */}
-      <div className="w-100">
+      {secondImage && (
         <img
           src={secondImage}
           alt="Second Banner"
-          className="second-banner"
+          className="full-width-image"
         />
-      </div>
+      )}
     </>
   );
 }
