@@ -75,7 +75,7 @@ export default function Navbar() {
 
                                     {/* BRAND LOGO */}
                                     <Link className="navbar-brand" href="/">
-                                        <img src="/images/logo.png" alt="Little Crayons Logo" height="60" />
+                                        <img src="/logo.png" alt="Little Crayons Logo" height="60" />
                                     </Link>
 
                                     {/* MOBILE TOGGLER */}
@@ -112,9 +112,9 @@ export default function Navbar() {
                                             >
                                                 <a
                                                     className={`nav-link dropdown-toggle menuacademics ${pathname.includes('/academics') ||
-                                                            ['/playgroup', '/nursery', '/lkg', '/ukg', '/daycare'].includes(pathname)
-                                                            ? 'active-link'
-                                                            : ''
+                                                        ['/playgroup', '/nursery', '/lkg', '/ukg', '/daycare'].includes(pathname)
+                                                        ? 'active-link'
+                                                        : ''
                                                         }`}
                                                     href="#"
                                                     role="button"
@@ -137,11 +137,11 @@ export default function Navbar() {
                                                 </Link>
                                             </li>
 
-                                            <li className="nav-item">
+                                            {/* <li className="nav-item">
                                                 <Link className={`nav-link menucareer ${isActive('/career') ? 'active-link' : ''}`} href="/career">
                                                     Career
                                                 </Link>
-                                            </li>
+                                            </li> */}
 
                                             <li className="nav-item">
                                                 <Link className={`nav-link menuFranchise ${isActive('/franchise') ? 'active-link' : ''}`} href="/franchise">

@@ -3,7 +3,7 @@ import React from "react";
 
 export default function PageBanner({
   title,
-  image = "/kids.jpeg"
+  image = "/kids.png"
 }) {
   return (
     <section

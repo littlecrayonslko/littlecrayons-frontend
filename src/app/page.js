@@ -143,7 +143,6 @@ export default function EnhancedPreschoolHomePage() {
   return (
     <div style={{ fontFamily: 'system-ui, -apple-system, sans-serif', color: '#1E293B', backgroundColor: '#FAFAFA' }}>
 
-      {/* CSS Animations & Micro-Interactions */}
       <style>{`
         @keyframes floatSlow {
           0%, 100% { transform: translateY(0px) rotate(0deg); }
@@ -220,103 +219,13 @@ export default function EnhancedPreschoolHomePage() {
         }
       `}</style>
 
-      {/* --- TOP ANNOUNCEMENT BAR --- */}
       <div className="py-2 text-center text-white fw-semibold small" style={{ backgroundColor: '#1E293B' }}>
         ✨ Admissions for Academic Year 2026–2027 are now open. <a href="#contact" className="text-warning text-decoration-underline ms-2">Book a Campus Tour</a>
       </div>
 
-      {/* --- NAVIGATION BAR --- */}
-      {/* <nav className="navbar navbar-expand-lg sticky-top bg-white border-bottom shadow-sm py-3">
-        <div className="container">
-          <a className="navbar-brand d-flex align-items-center gap-2 fw-bold" href="#home" style={{ fontSize: '1.5rem', color: '#0F172A' }}>
-            <div className="logo-float d-flex align-items-center justify-content-center rounded-circle" style={{ width: '42px', height: '42px', backgroundColor: '#EFF6FF' }}>
-              <FaGraduationCap size={24} color="#2563EB" />
-            </div>
-            <span>Little<span style={{ color: '#2563EB' }}>Sparks</span></span>
-          </a>
-
-          <button
-            className="navbar-toggler border-0 shadow-none"
-            type="button"
-            onClick={() => setNavOpen(!navOpen)}
-            aria-label="Toggle Navigation"
-          >
-            {navOpen ? <FaTimes size={24} color="#0F172A" /> : <FaBars size={24} color="#0F172A" />}
-          </button>
-
-          <div className={`collapse navbar-collapse ${navOpen ? 'show' : ''}`}>
-            <ul className="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center gap-1">
-              <li className="nav-item">
-                <Link className="nav-item-link d-block" href="/">Home</Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-item-link d-block" href="/about">About Us</Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-item-link d-block" href="/program">Program</Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-item-link d-block" href="/activity">activity</Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-item-link d-block text-primary fw-bold" href="/contact">Contact</Link>
-              </li>
-              <li className="nav-item ms-lg-3 mt-2 mt-lg-0">
-                <Link
-                  href="/contact"
-                  className="btn text-white fw-bold px-4 py-2 rounded-pill shadow-sm"
-                  style={{ backgroundColor: '#2563EB', border: 'none' }}
-                >
-                  Enroll Today
-                </Link>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav> */}
-
         <Navbar />
         <HeroSection />
 
-      {/* --- HERO SECTION --- */}
-      {/* <section id="home" className="py-5" style={{ background: 'linear-gradient(180deg, #EFF6FF 0%, #FAFAFA 100%)' }}>
-        <div className="container py-4">
-          <div className="row align-items-center gy-5">
-            <div className="col-lg-6">
-              <div className="d-inline-flex align-items-center gap-2 px-3 py-1 rounded-pill mb-3 border bg-white shadow-sm" style={{ borderColor: '#DBEAFE' }}>
-                <FaStar color="#F59E0B" size={14} className="bounce-anim" />
-                <span className="small fw-bold text-primary">A World-Class Foundation for Early Years</span>
-              </div>
-              <h1 className="display-4 fw-extrabold mb-3" style={{ color: '#0F172A', fontWeight: 800, letterSpacing: '-0.02em', lineHeight: 1.15 }}>
-                Where Curiosity Meets <span style={{ color: '#2563EB' }}>Purposeful</span> Learning.
-              </h1>
-              <p className="lead text-secondary mb-4" style={{ fontSize: '1.15rem', lineHeight: 1.6 }}>
-                Combining structured play with cognitive milestone development. We provide a safe, modern environment where every child feels confident to explore.
-              </p>
-              <div className="d-flex flex-wrap gap-3">
-                <a href="#courses" className="btn text-white fw-bold px-4 py-3 rounded-pill shadow-sm d-flex align-items-center gap-2 pro-card-hover" style={{ backgroundColor: '#2563EB', border: 'none' }}>
-                  Explore Programs <FaArrowRight size={14} />
-                </a>
-                <a href="#about" className="btn btn-outline-secondary fw-bold px-4 py-3 rounded-pill pro-card-hover">
-                  Our Educational Philosophy
-                </a>
-              </div>
-            </div>
-            <div className="col-lg-6">
-              <div className="position-relative p-2 bg-white rounded-4 shadow-lg border pro-card-hover">
-                <img
-                  src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=800&q=80"
-                  alt="Teacher assisting kids with interactive learning"
-                  className="img-fluid rounded-4 w-100"
-                  style={{ maxHeight: '420px', objectFit: 'cover' }}
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section> */}
-
-      {/* --- ABOUT US BRIEF SECTION --- */}
       <section id="about" className="py-5 bg-white border-top border-bottom">
         <div className="container py-3">
           <div className="row align-items-center gy-4">

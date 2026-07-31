@@ -28,45 +28,44 @@ import PageBanner from '../components/PageBanner';
 export default function AboutUsPage() {
   const [navOpen, setNavOpen] = useState(false);
 
-  // Timeline Milestones
-  // const storyMilestones = [
-  //   { year: "2018", title: "The Spark Begins", desc: "Started with just 15 toddlers and 3 passionate teachers in a humble cozy space." },
-  //   { year: "2020", title: "STEM Integration", desc: "Introduced playful hands-on science and logic games designed specifically for early years." },
-  //   { year: "2023", title: "Campus Expansion", desc: "Opened our modern 2-acre green campus equipped with biometric security and outdoor play zones." },
-  //   { year: "2026", title: "Award-Winning Standard", desc: "Recognized as a leading innovative preschool with over 1,200+ happy alumni." }
-  // ];
-  // const teamMembers = [
-  //   {
-  //     name: "Sarah Jenkins",
-  //     role: "Head of Preschool & Founder",
-  //     exp: "15+ Yrs Experience",
-  //     image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=500&q=80",
-  //     quote: "Every child is a natural explorer. We just give them the compass!"
-  //   },
-  //   {
-  //     name: "Marcus Thorne",
-  //     role: "Lead STEM & Early Logic Coach",
-  //     exp: "10+ Yrs Experience",
-  //     image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=500&q=80",
-  //     quote: "Building curiosity through play is how future innovators start."
-  //   },
-  //   {
-  //     name: "Elena Rostova",
-  //     role: "Child Psychology & Arts Lead",
-  //     exp: "8+ Yrs Experience",
-  //     image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=500&q=80",
-  //     quote: "Art and storytelling unlock emotional intelligence like nothing else."
-  //   }
-  // ];
+  const storyMilestones = [
+    { year: "2018", title: "The Spark Begins", desc: "Started with just 15 toddlers and 3 passionate teachers in a humble cozy space." },
+    { year: "2020", title: "STEM Integration", desc: "Introduced playful hands-on science and logic games designed specifically for early years." },
+    { year: "2023", title: "Campus Expansion", desc: "Opened our modern 2-acre green campus equipped with biometric security and outdoor play zones." },
+    { year: "2026", title: "Award-Winning Standard", desc: "Recognized as a leading innovative preschool with over 1,200+ happy alumni." }
+  ];
+  
+  const teamMembers = [
+    {
+      name: "Sarah Jenkins",
+      role: "Head of Preschool & Founder",
+      exp: "15+ Yrs Experience",
+      image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=500&q=80",
+      quote: "Every child is a natural explorer. We just give them the compass!"
+    },
+    {
+      name: "Marcus Thorne",
+      role: "Lead STEM & Early Logic Coach",
+      exp: "10+ Yrs Experience",
+      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=500&q=80",
+      quote: "Building curiosity through play is how future innovators start."
+    },
+    {
+      name: "Elena Rostova",
+      role: "Child Psychology & Arts Lead",
+      exp: "8+ Yrs Experience",
+      image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=500&q=80",
+      quote: "Art and storytelling unlock emotional intelligence like nothing else."
+    }
+  ];
 
-  // // Core Values
-  // const values = [
-  //   { title: "Safety First Always", icon: <FaShieldAlt size={28} color="#2563EB" />, bg: "#EFF6FF", desc: "Biometric access, 24/7 CCTV, and first-aid certified staff in every room." },
-  //   { title: "Joyful Discovery", icon: <FaRocket size={28} color="#D97706" />, bg: "#FEF3C7", desc: "Learning should never feel like a chore. Play is our core teaching tool." },
-  //   { title: "Emotional Warmth", icon: <FaHandHoldingHeart size={28} color="#EC4899" />, bg: "#FCE7F3", desc: "Nurturing empathy, kindness, and self-belief from day one." },
-  //   { title: "Parent Collaboration", icon: <FaUsers size={28} color="#059669" />, bg: "#ECFDF5", desc: "Daily app updates, direct messaging, and open-door parent partnerships." }
-  // ];
-  // Team Members
+  // Core Values
+  const values = [
+    { title: "Safety First Always", icon: <FaShieldAlt size={28} color="#2563EB" />, bg: "#EFF6FF", desc: "Biometric access, 24/7 CCTV, and first-aid certified staff in every room." },
+    { title: "Joyful Discovery", icon: <FaRocket size={28} color="#D97706" />, bg: "#FEF3C7", desc: "Learning should never feel like a chore. Play is our core teaching tool." },
+    { title: "Emotional Warmth", icon: <FaHandHoldingHeart size={28} color="#EC4899" />, bg: "#FCE7F3", desc: "Nurturing empathy, kindness, and self-belief from day one." },
+    { title: "Parent Collaboration", icon: <FaUsers size={28} color="#059669" />, bg: "#ECFDF5", desc: "Daily app updates, direct messaging, and open-door parent partnerships." }
+  ];
 
 
   return (
@@ -147,62 +146,11 @@ export default function AboutUsPage() {
       <div className="py-2 text-center text-white fw-semibold small" style={{ backgroundColor: '#1E293B' }}>
         ✨ Admissions for Academic Year 2026–2027 are now open. <a href="#contact" className="text-warning text-decoration-underline ms-2">Book a Campus Tour</a>
       </div>
-
-      {/* --- HEADER --- */}
-      {/* <nav className="navbar navbar-expand-lg sticky-top bg-white border-bottom shadow-sm py-3">
-        <div className="container">
-          <a className="navbar-brand d-flex align-items-center gap-2 fw-bold" href="/" style={{ fontSize: '1.5rem', color: '#0F172A' }}>
-            <div className="logo-float d-flex align-items-center justify-content-center rounded-circle" style={{ width: '42px', height: '42px', backgroundColor: '#EFF6FF' }}>
-              <FaGraduationCap size={24} color="#2563EB" />
-            </div>
-            <span>Little<span style={{ color: '#2563EB' }}>Sparks</span></span>
-          </a>
-
-          <button 
-            className="navbar-toggler border-0 shadow-none" 
-            type="button" 
-            onClick={() => setNavOpen(!navOpen)}
-            aria-label="Toggle Navigation"
-          >
-            {navOpen ? <FaTimes size={24} color="#0F172A" /> : <FaBars size={24} color="#0F172A" />}
-          </button>
-
-          <div className={`collapse navbar-collapse ${navOpen ? 'show' : ''}`}>
-            <ul className="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center gap-1">
-              <li className="nav-item">
-                <Link className="nav-item-link d-block" href="/">Home</Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-item-link d-block" href="/about">About Us</Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-item-link d-block" href="/program">Program</Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-item-link d-block" href="/activity">activity</Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-item-link d-block text-primary fw-bold" href="/contact">Contact</Link>
-              </li>
-              <li className="nav-item ms-lg-3 mt-2 mt-lg-0">
-                <Link
-                  href="/contact"
-                  className="btn text-white fw-bold px-4 py-2 rounded-pill shadow-sm"
-                  style={{ backgroundColor: '#2563EB', border: 'none' }}
-                >
-                  Enroll Today
-                </Link>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav> */}
       <Navbar />
       <h1 className="text-center">About Us</h1>
       <PageBanner />
 
-      {/* --- ABOUT HERO SECTION --- */}
-      {/* <section className="py-5 position-relative overflow-hidden" style={{ background: 'linear-gradient(180deg, #EFF6FF 0%, #FAFAFA 100%)' }}>
+      <section className="py-5 position-relative overflow-hidden" style={{ background: 'linear-gradient(180deg, #EFF6FF 0%, #FAFAFA 100%)' }}>
         <div className="container py-4">
           <div className="row align-items-center gy-5">
             <div className="col-lg-6">
@@ -258,10 +206,10 @@ export default function AboutUsPage() {
             </div>
           </div>
         </div>
-      </section> */}
+      </section> 
 
       {/* --- OUR CORE VALUES SECTION --- */}
-      {/* <section className="py-5 bg-white border-top border-bottom">
+      <section className="py-5 bg-white border-top border-bottom">
         <div className="container py-3">
           <div className="text-center mb-5">
             <h6 className="fw-bold text-uppercase text-primary" style={{ letterSpacing: '1.2px', fontSize: '0.85rem' }}>Our Guiding Principles</h6>
@@ -282,10 +230,10 @@ export default function AboutUsPage() {
             ))}
           </div>
         </div>
-      </section> */}
+      </section>
 
       {/* --- OUR STORY TIMELINE --- */}
-      {/* <section className="py-5" style={{ backgroundColor: '#F8FAFC' }}>
+      <section className="py-5" style={{ backgroundColor: '#F8FAFC' }}>
         <div className="container py-3">
           <div className="text-center mb-5">
             <h6 className="fw-bold text-uppercase text-primary" style={{ letterSpacing: '1.2px', fontSize: '0.85rem' }}>How We Grew</h6>
@@ -304,10 +252,10 @@ export default function AboutUsPage() {
             ))}
           </div>
         </div>
-      </section> */}
+      </section>
 
       {/* --- MEET OUR EDUCATORS SECTION --- */}
-      {/* <section className="py-5 bg-white border-top border-bottom">
+      <section className="py-5 bg-white border-top border-bottom">
         <div className="container py-3">
           <div className="text-center mb-5">
             <h6 className="fw-bold text-uppercase text-primary" style={{ letterSpacing: '1.2px', fontSize: '0.85rem' }}>Leadership & Teachers</h6>
@@ -340,10 +288,10 @@ export default function AboutUsPage() {
             ))}
           </div>
         </div>
-      </section> */}
+      </section>
 
       {/* --- CALL TO ACTION BAR --- */}
-      {/* <section className="py-5 text-white position-relative" style={{ backgroundColor: '#2563EB' }}>
+       <section className="py-5 text-white position-relative" style={{ backgroundColor: '#2563EB' }}>
         <div className="container py-3 text-center">
           <h2 className="fw-bold mb-3">Ready to give your child the best start?</h2>
           <p className="lead opacity-90 mb-4 max-w-xl mx-auto" style={{ maxWidth: '600px' }}>
@@ -353,7 +301,7 @@ export default function AboutUsPage() {
             Schedule a School Tour <FaArrowRight className="ms-2" size={14} />
           </a>
         </div>
-      </section> */}
+      </section>
 
       {/* --- FOOTER --- */}
       <footer id="contact" style={{ backgroundColor: '#0F172A', color: '#94A3B8' }} className="pt-5 pb-4">

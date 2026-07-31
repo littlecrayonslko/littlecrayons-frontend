@@ -3,73 +3,72 @@ import React from "react";
 
 export default function HeroSection({
   bgColor = "#2563EB",
-  heroImage = "http://www.littlecrayons.org/images/slider.png",
-  secondImage = "/kids.jpeg", // your second image
+  cloudImage = "/cloud.png", // 1st: Cloud image
+  firstImage = "/first.png", // 2nd: First image
+  kidsImage = "/kids.png",   // 3rd: Kids image
 }) {
   return (
     <>
-      {/* Hero Section */}
-      <div
-        className="hero-container position-relative text-white overflow-hidden w-100"
-        style={{
-          backgroundColor: bgColor,
-          paddingTop: "60px",
-          paddingBottom: "0px",
-          width: "100%",
-        }}
-      >
-        <div
-          className="position-absolute top-0 start-0 w-100 overflow-hidden"
-          style={{ lineHeight: 0, zIndex: 10, pointerEvents: "none" }}
-        >
-          <svg
-            viewBox="0 0 1440 90"
-            preserveAspectRatio="none"
-            className="position-relative d-block w-100"
-            style={{ height: "55px" }}
-          ></svg>
-        </div>
+      <style>{`
+        .blue-pattern-bg {
+          background-color: ${bgColor};
+          background-image: radial-gradient(rgba(255, 255, 255, 0.18) 1.5px, transparent 0);
+          background-size: 28px 28px;
+        }
 
-        <style>{`
-          .hero-container {
-            background-image: radial-gradient(rgba(255, 255, 255, 0.18) 1.5px, transparent 0);
-            background-size: 28px 28px;
-          }
+        /* Ensures images are full-width block elements with zero margin */
+        .stacked-banner-img {
+          width: 100%;
+          height: auto;
+          display: block;
+          margin: 0;
+          padding: 0;
+          object-fit: cover;
+        }
 
-          .full-hero-image {
-            width: 100%;
-            height: auto;
-            max-height: 80vh;
-            object-fit: contain;
-            display: block;
-          }
+        /* Removes default inline layout gaps between image containers */
+        .image-wrapper {
+          margin: 0;
+          padding: 0;
+          line-height: 0;
+        }
+      `}</style>
 
-          .full-width-image {
-            width: 100%;
-            height: auto;
-            display: block;
-            object-fit: cover;
-          }
-        `}</style>
-
-        <div className="w-100 text-center position-relative" style={{ zIndex: 2 }}>
-          {heroImage && (
+      {/* Blue Background Container */}
+      <div className="blue-pattern-bg position-relative text-white overflow-hidden w-100">
+        
+        {/* 1. cloud.png */}
+        {cloudImage && (
+          <div className="w-100 image-wrapper position-relative" style={{ zIndex: 2 }}>
             <img
-              src={heroImage}
-              alt="Hero Banner"
-              className="full-hero-image mx-auto"
+              src={cloudImage}
+              alt="Cloud Banner"
+              className="stacked-banner-img"
             />
-          )}
-        </div>
+          </div>
+        )}
+
+        {/* 2. first.png */}
+        {firstImage && (
+          <div className="w-100 image-wrapper position-relative" style={{ zIndex: 2 }}>
+            <img
+              src={firstImage}
+              alt="First Banner"
+              className="stacked-banner-img"
+            />
+          </div>
+        )}
       </div>
 
-      {/* Second Full Width Image */}
-      {secondImage && (
-        <img
-          src={secondImage}
-          alt="Second Banner"
-          className="full-width-image"
-        />
+      {/* 3. THIRD IMAGE: kids.png (Original Colors) */}
+      {kidsImage && (
+        <div className="w-100 image-wrapper">
+          <img
+            src={kidsImage}
+            alt="Kids Banner"
+            className="stacked-banner-img"
+          />
+        </div>
       )}
     </>
   );
