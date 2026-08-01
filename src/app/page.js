@@ -28,6 +28,7 @@ import {
 import Link from 'next/link';
 import Navbar from './components/navbar';
 import HeroSection from './components/herosection';
+import Footer from './components/footer';
 
 export default function EnhancedPreschoolHomePage() {
   const [navOpen, setNavOpen] = useState(false);
@@ -485,61 +486,7 @@ export default function EnhancedPreschoolHomePage() {
         </div>
       </section>
 
-      {/* --- FOOTER --- */}
-      <footer id="contact" style={{ backgroundColor: '#0F172A', color: '#94A3B8' }} className="pt-5 pb-4">
-        <div className="container">
-          <div className="row gy-4 mb-4">
-            <div className="col-lg-4 col-md-6">
-              <div className="d-flex align-items-center gap-2 mb-3">
-                <FaGraduationCap size={26} color="#2563EB" />
-                <h4 className="fw-bold text-white m-0">LittleSparks</h4>
-              </div>
-              <p className="small text-secondary">
-                Empowering children through balanced development, modern facilities, and a supportive educational environment.
-              </p>
-            </div>
-
-            <div className="col-lg-2 col-md-6">
-              <h6 className="fw-bold text-white mb-3">Navigation</h6>
-              <ul className="list-unstyled small">
-                <li className="mb-2"><a href="#home" className="text-decoration-none text-secondary">Home</a></li>
-                <li className="mb-2"><a href="#about" className="text-decoration-none text-secondary">About Us</a></li>
-                <li className="mb-2"><a href="#courses" className="text-decoration-none text-secondary">Programs</a></li>
-                <li className="mb-2"><a href="#faq" className="text-decoration-none text-secondary">FAQ</a></li>
-              </ul>
-            </div>
-
-            <div className="col-lg-3 col-md-6">
-              <h6 className="fw-bold text-white mb-3">Get in Touch</h6>
-              <ul className="list-unstyled small text-secondary">
-                <li className="mb-2 d-flex align-items-center gap-2">
-                  <FaMapMarkerAlt color="#2563EB" /> 123 Education Boulevard
-                </li>
-                <li className="mb-2 d-flex align-items-center gap-2">
-                  <FaPhoneAlt color="#059669" /> +1 (555) 019-2834
-                </li>
-                <li className="mb-2 d-flex align-items-center gap-2">
-                  <FaEnvelope color="#D97706" /> admissions@littlesparks.edu
-                </li>
-              </ul>
-            </div>
-
-            <div className="col-lg-3 col-md-6">
-              <h6 className="fw-bold text-white mb-3">Campus Hours</h6>
-              <p className="small text-secondary mb-1">Mon - Fri: 8:00 AM - 4:30 PM</p>
-              <p className="small text-secondary mb-3">Saturday: By Appointment</p>
-              <span className="badge p-2 px-3 fw-normal" style={{ backgroundColor: '#1E293B', color: '#F1F5F9', border: '1px solid #334155' }}>
-                Tour Reservations Available
-              </span>
-            </div>
-          </div>
-
-          <hr style={{ borderColor: '#334155' }} />
-          <div className="text-center small text-secondary">
-            © {new Date().getFullYear()} LittleSparks Preschool. All rights reserved.
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

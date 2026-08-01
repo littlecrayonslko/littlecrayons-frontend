@@ -72,7 +72,6 @@ export default function DaycarePage() {
       <h1 className="text-center my-4 fw-extrabold" style={{ color: '#FF5722', fontWeight: 800 }}>Daycare Program</h1>
       <PageBanner />
 
-      {/* --- MAIN DAYCARE CONTENT --- */}
       <section className="py-5 bg-white">
         <style>{`
           .program-card {

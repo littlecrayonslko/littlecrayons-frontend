@@ -291,7 +291,7 @@ export default function ActivitiesPage() {
                                     <span className="fw-semibold">{FEATURED_SLIDES[currentSlide].date}</span>
                                 </div>
 
-                                <a href="#contact" className="btn btn-light fw-bold px-4 py-2 rounded-pill shadow-sm text-dark d-inline-flex align-items-center gap-2">
+                                <a href="/enquiry" className="btn btn-light fw-bold px-4 py-2 rounded-pill shadow-sm text-dark d-inline-flex align-items-center gap-2">
                                     Inquire Event Details <FaArrowRight size={14} className="slide-arrow" />
                                 </a>
                             </div>
