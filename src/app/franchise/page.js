@@ -499,7 +499,7 @@ export default function ActivitiesPage() {
                         <div className="col-lg-4 col-md-6">
                             <div className="d-flex align-items-center gap-2 mb-3">
                                 <FaGraduationCap size={26} color="#2563EB" />
-                                <h4 className="fw-bold text-white m-0">LittleSparks</h4>
+                                <h4 className="fw-bold text-white m-0">Little Crayons</h4>
                             </div>
                             <p className="small text-secondary">
                                 Empowering children through balanced development, modern facilities, and a supportive educational environment.
@@ -526,7 +526,7 @@ export default function ActivitiesPage() {
                                     <FaPhoneAlt color="#059669" /> +1 (555) 019-2834
                                 </li>
                                 <li className="mb-2 d-flex align-items-center gap-2">
-                                    <FaEnvelope color="#D97706" /> admissions@littlesparks.edu
+                                    <FaEnvelope color="#D97706" /> admissions@Little Crayons.edu
                                 </li>
                             </ul>
                         </div>
@@ -543,7 +543,7 @@ export default function ActivitiesPage() {
 
                     <hr style={{ borderColor: '#334155' }} />
                     <div className="text-center small text-secondary">
-                        © {new Date().getFullYear()} LittleSparks Preschool. All rights reserved.
+                        © {new Date().getFullYear()} Little Crayons Preschool. All rights reserved.
                     </div>
                 </div>
             </footer>

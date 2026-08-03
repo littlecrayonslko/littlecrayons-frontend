@@ -201,7 +201,7 @@ export default function ProgramsPage() {
 
             {/* --- ANNOUNCEMENT BAR --- */}
             <div className="py-2 text-center text-white fw-semibold small" style={{ backgroundColor: '#1E293B' }}>
-                ✨ Admissions for Academic Year 2026–2027 are now open. <a href="#contact" className="text-warning text-decoration-underline ms-2">Book a Campus Tour</a>
+                ✨ Admissions for Academic Year 2026–2027 are now open. <a href="/contact" className="text-warning text-decoration-underline ms-2">Book a Campus Tour</a>
             </div>
 
             {/* --- HEADER --- */}
@@ -431,7 +431,7 @@ export default function ProgramsPage() {
                 <div className="container py-3">
                     <div className="text-center mb-5">
                         <h6 className="fw-bold text-uppercase text-primary" style={{ letterSpacing: '1.2px', fontSize: '0.85rem' }}>Easy Registration</h6>
-                        <h2 className="fw-bold" style={{ color: '#0F172A', fontSize: '2.2rem' }}>How to Join LittleSparks</h2>
+                        <h2 className="fw-bold" style={{ color: '#0F172A', fontSize: '2.2rem' }}>How to Join Little Crayons</h2>
                     </div>
 
                     <div className="row g-4 text-center">
@@ -460,7 +460,7 @@ export default function ProgramsPage() {
                             <div className="p-4 rounded-4 bg-light border hover-card h-100">
                                 <div className="fw-extrabold text-primary display-6 mb-2">04</div>
                                 <h5 className="fw-bold" style={{ color: '#0F172A' }}>Welcome Day!</h5>
-                                <p className="text-secondary small mb-0">Your child starts their joyful journey at LittleSparks!</p>
+                                <p className="text-secondary small mb-0">Your child starts their joyful journey at Little Crayons!</p>
                             </div>
                         </div>
                     </div>
@@ -474,7 +474,7 @@ export default function ProgramsPage() {
                         <div className="col-lg-4 col-md-6">
                             <div className="d-flex align-items-center gap-2 mb-3">
                                 <FaGraduationCap size={26} color="#2563EB" />
-                                <h4 className="fw-bold text-white m-0">LittleSparks</h4>
+                                <h4 className="fw-bold text-white m-0">Little Crayons</h4>
                             </div>
                             <p className="small text-secondary">
                                 Empowering children through balanced development, modern facilities, and a supportive educational environment.
@@ -501,7 +501,7 @@ export default function ProgramsPage() {
                                     <FaPhoneAlt color="#059669" /> +1 (555) 019-2834
                                 </li>
                                 <li className="mb-2 d-flex align-items-center gap-2">
-                                    <FaEnvelope color="#D97706" /> admissions@littlesparks.edu
+                                    <FaEnvelope color="#D97706" /> admissions@Little Crayons.edu
                                 </li>
                             </ul>
                         </div>
@@ -518,7 +518,7 @@ export default function ProgramsPage() {
 
                     <hr style={{ borderColor: '#334155' }} />
                     <div className="text-center small text-secondary">
-                        © {new Date().getFullYear()} LittleSparks Preschool. All rights reserved.
+                        © {new Date().getFullYear()} Little Crayons Preschool. All rights reserved.
                     </div>
                 </div>
             </footer>

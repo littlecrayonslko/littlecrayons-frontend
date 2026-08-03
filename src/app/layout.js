@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'; // <--- IMPORT BOOTSTRAP CSS HERE
 import './globals.css';
 
 export const metadata = {
-  title: 'LittleSparks Preschool',
+  title: 'Little Crayons Preschool',
   description: 'A place where learning meets play!',
 };
 

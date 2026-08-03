@@ -1,42 +1,43 @@
+/* eslint-disable @next/next/no-img-element */
 import React from 'react';
-import { 
-  FaMapMarkerAlt, 
-  FaPhoneAlt, 
-  FaEnvelope, 
-  FaClock, 
-  FaFacebookF, 
-  FaInstagram, 
-  FaYoutube, 
-  FaTwitter 
+import {
+  FaMapMarkerAlt,
+  FaPhoneAlt,
+  FaEnvelope,
+  FaClock,
+  FaFacebookF,
+  FaInstagram,
+  FaYoutube,
+  FaTwitter
 } from 'react-icons/fa';
 
 const Footer = () => {
   return (
     <footer id="contact" style={{ backgroundColor: '#0F172A', color: '#94A3B8' }} className="pt-5 pb-4 position-relative overflow-hidden">
       {/* Decorative top rainbow accent line */}
-      <div 
-        style={{ 
-          height: '4px', 
-          background: 'linear-gradient(90deg, #3B82F6 0%, #EC4899 33%, #F59E0B 66%, #10B981 100%)' 
-        }} 
+      <div
+        style={{
+          height: '4px',
+          background: 'linear-gradient(90deg, #3B82F6 0%, #EC4899 33%, #F59E0B 66%, #10B981 100%)'
+        }}
       />
 
       <div className="container pt-4">
         <div className="row gy-4 mb-5">
-          
+
           {/* Brand & Logo Section */}
           <div className="col-lg-4 col-md-6">
             <div className="mb-3">
               {/* White Background Enclosure for Pure Image Logo */}
-              <div 
+              <div
                 className="bg-white rounded-3 p-2 d-inline-flex align-items-center justify-content-center shadow-sm"
                 style={{ height: '60px', minWidth: '160px', maxWidth: '220px' }}
               >
-                <img 
-                  src="/logo.png" 
-                  alt="LittleSparks Logo" 
-                  className="img-fluid" 
-                  style={{ maxHeight: '100%', objectFit: 'contain' }} 
+                <img
+                  src="/logo.png"
+                  alt="Little Crayons Logo"
+                  className="img-fluid"
+                  style={{ maxHeight: '100%', objectFit: 'contain' }}
                 />
               </div>
             </div>
@@ -48,14 +49,16 @@ const Footer = () => {
             {/* Social Links */}
             <div className="d-flex gap-2 pt-2">
               {[
-                { icon: <FaFacebookF />, color: '#1877F2', label: 'Facebook' },
-                { icon: <FaInstagram />, color: '#E4405F', label: 'Instagram' },
-                { icon: <FaYoutube />, color: '#FF0000', label: 'YouTube' },
-                { icon: <FaTwitter />, color: '#1DA1F2', label: 'Twitter' }
+                { icon: <FaFacebookF />, color: '#1877F2', label: 'Facebook', url: 'https://www.facebook.com/share/193BguQDyZ/?mibextid=wwXIfr' },
+                { icon: <FaInstagram />, color: '#E4405F', label: 'Instagram', url: 'https://www.instagram.com/littlecrayons2012?igsh=N3g1bDluejRlYWdn' },
+                { icon: <FaYoutube />, color: '#FF0000', label: 'YouTube', url: 'https://youtube.com/@yourchannel' },
+                { icon: <FaTwitter />, color: '#1DA1F2', label: 'Twitter', url: 'https://twitter.com/yourhandle' }
               ].map((social, idx) => (
                 <a
                   key={idx}
-                  href="#"
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label={social.label}
                   className="d-flex align-items-center justify-content-center rounded-circle text-white text-decoration-none"
                   style={{
@@ -112,19 +115,20 @@ const Footer = () => {
             <h6 className="fw-bold text-white mb-3 text-uppercase tracking-wider" style={{ fontSize: '0.85rem' }}>
               Get in Touch
             </h6>
-            
+
             <ul className="list-unstyled small d-flex flex-column gap-2 mb-3">
               <li className="d-flex align-items-start gap-2">
                 <FaMapMarkerAlt className="mt-1 flex-shrink-0" color="#60A5FA" />
-                <span>123 Education Boulevard, Learning City, ST 12345</span>
+                <span>
+                  Kanpur Road, Sector D1, LDA Colony, Lucknow, India, 226012</span>
               </li>
               <li className="d-flex align-items-center gap-2">
                 <FaPhoneAlt className="flex-shrink-0" color="#34D399" />
-                <a href="tel:+15550192834" className="text-decoration-none text-slate-400 hover-white">+1 (555) 019-2834</a>
+                <a href="tel:+15550192834" className="text-decoration-none text-slate-400 hover-white">073795 03555</a>
               </li>
               <li className="d-flex align-items-center gap-2">
                 <FaEnvelope className="flex-shrink-0" color="#FBBF24" />
-                <a href="mailto:admissions@littlesparks.edu" className="text-decoration-none text-slate-400 hover-white">admissions@littlesparks.edu</a>
+                <a href="mailto:littlecrayonslko@gmail.com" className="text-decoration-none text-slate-400 hover-white">littlecrayonslko@gmail.com</a>
               </li>
             </ul>
 
@@ -146,7 +150,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="d-flex flex-column flex-md-row justify-content-between align-items-center small gap-2 text-slate-400">
           <div>
-            © {new Date().getFullYear()} LittleSparks Preschool. All rights reserved.
+            © {new Date().getFullYear()} Little Crayons Preschool. All rights reserved.
           </div>
           <div className="d-flex gap-3">
             <a href="#privacy" className="text-decoration-none text-slate-400 hover-white">Privacy Policy</a>
