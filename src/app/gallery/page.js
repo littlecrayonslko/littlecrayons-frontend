@@ -21,14 +21,14 @@ export default function GalleryPage() {
 
   // Gallery items array
   const galleryItems = [
-    { id: 1, title: 'Art & Craft Corner', category: 'Arts & Crafts', img: 'https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?q=80&w=800' },
-    { id: 2, title: 'Outdoor Playground Fun', category: 'Playtime', img: 'https://images.unsplash.com/photo-1566492031773-4f4e44671857?q=80&w=800' },
-    { id: 3, title: 'Interactive Learning Lab', category: 'Classrooms', img: 'https://images.unsplash.com/photo-1587654780291-39c9404d746b?q=80&w=800' },
-    { id: 4, title: 'Annual Day Celebrations', category: 'Events', img: 'https://images.unsplash.com/photo-1511632765486-a01980e01a18?q=80&w=800' },
-    { id: 5, title: 'Storytelling & Reading Time', category: 'Classrooms', img: 'https://images.unsplash.com/photo-1544717305-2782549b5136?q=80&w=800' },
-    { id: 6, title: 'Finger Painting Session', category: 'Arts & Crafts', img: 'https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?q=80&w=800' },
-    { id: 7, title: 'Sports Day Race', category: 'Events', img: 'https://images.unsplash.com/photo-1472162072142-d544e73eebfb?q=80&w=800' },
-    { id: 8, title: 'Sandpit & Toy Zone', category: 'Playtime', img: 'https://images.unsplash.com/photo-1596464716127-f2a82984de30?q=80&w=800' },
+    { id: 1, title: 'Art & Craft Corner', category: 'Arts & Crafts', img: './artandcraft1.png' },
+    { id: 2, title: 'Outdoor Playground Fun', category: 'Playtime', img: './outdoor.png' },
+    { id: 3, title: 'Interactive Learning Lab', category: 'Classrooms', img: './learninglab.png' },
+    { id: 4, title: 'Annual Day Celebrations', category: 'Events', img: './anvalday.png' },
+    { id: 5, title: 'Storytelling & Reading Time', category: 'Classrooms', img: './class2.png' },
+    { id: 6, title: 'Finger Painting Session', category: 'Arts & Crafts', img: 'artandcraft2.png' },
+    { id: 7, title: 'Sports Day Race', category: 'Events', img: 'sports2.png' },
+    { id: 8, title: 'Sandpit & Toy Zone', category: 'Playtime', img: './toyzone.png' },
   ];
 
   const categories = ['All', 'Classrooms', 'Playtime', 'Arts & Crafts', 'Events'];

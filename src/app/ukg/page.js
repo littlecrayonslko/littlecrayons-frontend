@@ -215,7 +215,7 @@ export default function UKGPage() {
               <div className="position-absolute opacity-20 d-none d-lg-block" style={{width: '150px', height: '150px', backgroundColor: colors.green, borderRadius: '30% 70% 70% 30%', bottom: '-30px', right: '20px', zIndex: 0}}></div>
               
               <img 
-                src="https://scontent-bom5-1.xx.fbcdn.net/v/t39.30808-6/633944933_122196656432544287_4995599332156943735_n.jpg?stp=dst-jpg_tt6&cstp=mx1080x1080&ctp=p526x296&_nc_cat=111&ccb=1-7&_nc_sid=127cfc&_nc_ohc=XQGlQiTCrZsQ7kNvwEDryq1&_nc_oc=AdrqeKnJcfnK8cQFgM2VXE8vd-3PDfTF0TEzSnv9PLhmM1pBRjKzybl5Nbzp7siC17MbrDziKrkDAJo2duZKNpVx&_nc_zt=23&_nc_ht=scontent-bom5-1.xx&_nc_gid=Vhmr5cKUu7eRhUDsDiVWBg&_nc_ss=7b2a8&oh=00_AQFWlUPieZ2fgNG6WuyFm0L2-KuDfkYRBlT526zDKDjP6g&oe=6A76945C" 
+                src="UKG.png" 
                 alt="UKG Classroom Learning" 
                 className="img-fluid rounded-circle border-4 shadow-lg w-100 float-anim position-relative mx-auto mx-lg-0"
                 style={{ objectFit: 'cover', height: 'auto', maxHeight: '550px', maxWidth: '550px', borderColor: colors.green, zIndex: 1 }}

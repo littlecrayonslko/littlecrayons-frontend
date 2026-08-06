@@ -181,7 +181,7 @@ export default function PlaygroupPage() {
               <div className="position-absolute opacity-20" style={{width: '150px', height: '150px', backgroundColor: colors.yellow, borderRadius: '30% 70% 70% 30%', bottom: '-30px', right: '20px', zIndex: 0}}></div>
               
               <img 
-                src="https://scontent-bom2-4.xx.fbcdn.net/v/t39.30808-6/656854776_122201392328544287_563339312535379449_n.jpg?stp=dst-jpg_tt6&cstp=mx1080x1080&ctp=p526x296&_nc_cat=107&ccb=1-7&_nc_sid=127cfc&_nc_ohc=g7Ne-eag5ZUQ7kNvwHuSsIj&_nc_oc=AdrS2xpgsOO19LYn4p0Ks4QRJpTqwr4JJMCJs-U0rs3DWSzm0EOY2DsMgk2zC7t0-Ty-K78fOP5z0uN-NgsKc1vo&_nc_zt=23&_nc_ht=scontent-bom2-4.xx&_nc_gid=cswL03m8_lASqZCorDe6Ow&_nc_ss=7b2a8&oh=00_AQE2kYAJfI-L7ONo4etwTKy40Jbl8kfRjcSpygCEdrdw1Q&oe=6A768DDC" 
+                src="./playgroup.png" 
                 alt="Playgroup Classroom" 
                 className="img-fluid rounded-circle border-4 shadow-lg w-100 float-anim position-relative"
                 style={{ objectFit: 'cover', height: '550px', width: '550px', borderColor: colors.blue, zIndex: 1 }}

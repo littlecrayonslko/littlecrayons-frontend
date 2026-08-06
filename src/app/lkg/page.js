@@ -178,7 +178,7 @@ export default function LKGPage() {
               <div className="position-absolute opacity-20 d-none d-md-block" style={{width: '150px', height: '150px', backgroundColor: colors.green, borderRadius: '30% 70% 70% 30%', bottom: '-30px', right: '20px', zIndex: 0}}></div>
               
               <img 
-                src="https://scontent-bom2-4.xx.fbcdn.net/v/t39.30808-6/634329037_122197192622544287_3464818697421719063_n.jpg?stp=dst-jpg_tt6&cstp=mx1080x1080&ctp=p526x296&_nc_cat=107&ccb=1-7&_nc_sid=127cfc&_nc_ohc=9ZdWJzOVV3AQ7kNvwFN2dgh&_nc_oc=AdrJNYqWgBE6jyMyZP_4dhHOBGQx5FHtMG8DaHPFlCQSZ86WC2kLvmzuohn6eUOq0cmCqHEnHk3iOIWReSKnUu2W&_nc_zt=23&_nc_ht=scontent-bom2-4.xx&_nc_gid=okujtxD_Tufbclfqhs4N_w&_nc_ss=7b2a8&oh=00_AQHwXPQPvr8Cu0vJjat_Jktowvf6WTEoXBqsy3Xgitxv2Q&oe=6A76C188" 
+                src="./LKG.png" 
                 alt="LKG Classroom Learning" 
                 className="img-fluid rounded-circle border-4 shadow-lg w-100 float-anim position-relative mx-auto"
                 style={{ objectFit: 'cover', height: 'auto', maxHeight: '550px', maxWidth: '550px', borderColor: colors.green, zIndex: 1 }}

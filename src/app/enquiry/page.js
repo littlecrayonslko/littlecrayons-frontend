@@ -21,7 +21,7 @@ export default function ContactPage() {
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log("Form Submitted:", formData);
-        alert("🎉 Thank you! We have received your inquiry and will contact you shortly.");
+        alert("🎉 Thank you! We have received your enquiry and will contact you shortly.");
     };
 
     return (
@@ -149,7 +149,7 @@ export default function ContactPage() {
                         <span className="badge bg-warning text-dark px-3 py-2 rounded-pill fw-bold mb-2 fs-6">
                             🎈 Reach Out To Us
                         </span>
-                        <h1 className="contact-title m-0">Preschool Admissions & Inquiry</h1>
+                        <h1 className="contact-title m-0">Preschool Admissions & enquiry</h1>
                         <p className="contact-subtitle mt-2">
                             Have questions or want to schedule a school tour? We’d love to welcome your little one! ✨
                         </p>
@@ -158,7 +158,7 @@ export default function ContactPage() {
                     {/* Form & Contact Details Grid */}
                     <div className="row g-4 align-items-stretch justify-content-center mb-5">
                         
-                        {/* LEFT COLUMN: Preschool Inquiry Form */}
+                        {/* LEFT COLUMN: Preschool enquiry Form */}
                         <div className="col-lg-6 col-md-10">
                             <div className="form-card p-4 p-md-5 h-100">
                                 <div className="text-center mb-4">
@@ -231,14 +231,14 @@ export default function ContactPage() {
                                             onChange={handleInputChange}
                                             required
                                         >
-                                            <option value="">Choose an inquiry type...</option>
+                                            <option value="">Choose an enquiry type...</option>
                                             <option value="Playgroup Admission">Playgroup (1.5 - 2.5 Yrs)</option>
                                             <option value="Nursery Admission">Nursery (2.5 - 3.5 Yrs)</option>
                                             <option value="Junior KG Admission">Junior KG (3.5 - 4.5 Yrs)</option>
                                             <option value="Senior KG Admission">Senior KG (4.5 - 5.5 Yrs)</option>
                                             <option value="Daycare">Daycare & After School</option>
-                                            <option value="Franchise Inquiry">Franchise Inquiry</option>
-                                            <option value="General Inquiry">General Inquiry</option>
+                                            <option value="Franchise enquiry">Franchise enquiry</option>
+                                            <option value="General enquiry">General enquiry</option>
                                         </select>
                                     </div>
 

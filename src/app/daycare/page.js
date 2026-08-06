@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-page-custom-font */
 /* eslint-disable @next/next/no-img-element */
 "use client";
 
@@ -208,7 +209,7 @@ export default function DaycarePage() {
               <div className="position-absolute opacity-20 d-none d-lg-block" style={{width: '150px', height: '150px', backgroundColor: colors.green, borderRadius: '30% 70% 70% 30%', bottom: '-30px', right: '20px', zIndex: 0}}></div>
               
               <img 
-                src="https://scontent-bom5-1.xx.fbcdn.net/v/t39.30808-6/633274510_122196437594544287_2956000418667736521_n.jpg?stp=dst-jpg_tt6&cstp=mx1080x1080&ctp=p526x296&_nc_cat=109&ccb=1-7&_nc_sid=127cfc&_nc_ohc=eoIsKTN1jQkQ7kNvwG8pdEm&_nc_oc=AdouMRhwTgV-okjv0MQ_V2jwetSfXFzsNQf9NQOqB57h0wPbij7q5seea_OIelZjR7qdeq0RuJYP5WpYxWo7pZiK&_nc_zt=23&_nc_ht=scontent-bom5-1.xx&_nc_gid=IPOHXGzw4eQSmoDZw0jWNQ&_nc_ss=7b2a8&oh=00_AQFTq-NE6jTVtMYj8RcWyo0mPKa7HmwuczfG8DUBwhQYYA&oe=6A7693E8" 
+                src="./daycare.png" 
                 alt="Daycare Play & Rest Area" 
                 className="img-fluid rounded-circle border-4 shadow-lg w-100 float-anim position-relative mx-auto mx-lg-0"
                 style={{ objectFit: 'cover', height: 'auto', maxHeight: '550px', maxWidth: '550px', borderColor: colors.green, zIndex: 1 }}

@@ -205,7 +205,7 @@ export default function AboutUsPage() {
             <div className="col-lg-6">
               <div className="position-relative p-3 bg-white shadow-lg border hover-card float-anim" style={{borderRadius: '40px'}}>
                 <img 
-                  src="https://scontent-bom5-2.xx.fbcdn.net/v/t39.30808-6/661857352_122202873968544287_2956360732358328238_n.jpg?stp=dst-jpg_tt6&cstp=mx1080x1080&ctp=p526x296&_nc_cat=100&ccb=1-7&_nc_sid=127cfc&_nc_ohc=GzQ2FZZdcx0Q7kNvwG8pdEm&_nc_oc=AdqnUNYLNkfgJqR1HBTvk-8ahXbvMh655yte74rgveh3n5u3lNI18baCh6Bw797zh7aJHKUsA2Urh9jThgIoGgoT&_nc_zt=23&_nc_ht=scontent-bom5-2.xx&_nc_gid=rYxBuPvPafJf4AO5lxlonQ&_nc_ss=7b2a8&oh=00_AQFcnvCaZVjseUY9tJ9vOfWalpTMG2M8bIB_zYT415-hiw&oe=6A76A4B7" 
+                  src="./about-us.png" 
                   alt="Modern preschool learning room" 
                   className="img-fluid w-100"
                   style={{ maxHeight: '420px', objectFit: 'cover', borderRadius: '30px' }}
