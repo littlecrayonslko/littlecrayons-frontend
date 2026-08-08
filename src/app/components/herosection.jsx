@@ -5,7 +5,7 @@ export default function HeroSection({
   bgColor = "#2563EB",
   cloudImage = "/cloud.png", // 1st: Cloud image
   firstImage = "/first.png", // 2nd: First image
-  kidsImage = "/kids.png",   // 3rd: Kids image
+  // kidsImage = "/kids.png",   // 3rd: Kids image
 }) {
   return (
     <>
@@ -61,7 +61,7 @@ export default function HeroSection({
       </div>
 
       {/* 3. THIRD IMAGE: kids.png (Original Colors) */}
-      {kidsImage && (
+      {/* {kidsImage && (
         <div className="w-100 image-wrapper">
           <img
             src={kidsImage}
@@ -69,7 +69,7 @@ export default function HeroSection({
             className="stacked-banner-img"
           />
         </div>
-      )}
+      )} */}
     </>
   );
 }

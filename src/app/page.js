@@ -1,8 +1,11 @@
+
 /* eslint-disable @next/next/no-page-custom-font */
 /* eslint-disable @next/next/no-img-element */
 "use client";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import Link from 'next/link'; // <--- ADD THIS LINE
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {
   FaGraduationCap,
   FaStar,
@@ -35,6 +38,14 @@ import {
 import Navbar from './components/navbar';
 import HeroSection from './components/herosection';
 import Footer from './components/footer';
+import PageBanner from './components/PageBanner';
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import "./Home.css";
+import StorySection from "./components/StorySection";
 
 export default function EnhancedPreschoolHomePage() {
   const [activeTestimonial, setActiveTestimonial] = useState(0);
@@ -130,7 +141,7 @@ export default function EnhancedPreschoolHomePage() {
     { id: 'owl', name: 'Professor Owl', sound: '🦉 "HOOT HOOT! Did you know learning is super fun?"', color: '#F59E0B', icon: <FaFeather size={40} /> }
   ];
 
- const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState({
     fullName: '',
     email: '',
     mobile: '',
@@ -150,47 +161,47 @@ export default function EnhancedPreschoolHomePage() {
 
 
 
-    useEffect(() => {
-      const galleryTimer = setInterval(() => {
-        setGalleryIndex((prev) => (prev + 1) % galleryImages.length);
-      }, 4000);
-      return () => clearInterval(galleryTimer);
-    }, [galleryImages.length]);
+  useEffect(() => {
+    const galleryTimer = setInterval(() => {
+      setGalleryIndex((prev) => (prev + 1) % galleryImages.length);
+    }, 4000);
+    return () => clearInterval(galleryTimer);
+  }, [galleryImages.length]);
 
-    const handleNextTestimonial = () => {
-      setActiveTestimonial((prev) => (prev + 1) % testimonials.length);
-    };
+  const handleNextTestimonial = () => {
+    setActiveTestimonial((prev) => (prev + 1) % testimonials.length);
+  };
 
-    const handlePrevTestimonial = () => {
-      setActiveTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length);
-    };
+  const handlePrevTestimonial = () => {
+    setActiveTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+  };
 
-    const toggleFaq = (index) => {
-      setOpenFaq(openFaq === index ? null : index);
-    };
+  const toggleFaq = (index) => {
+    setOpenFaq(openFaq === index ? null : index);
+  };
 
-    const handleAnimalClick = (animal) => {
-      setActiveAnimal(animal.id);
-      setAnimalSound(animal.sound);
-    };
+  const handleAnimalClick = (animal) => {
+    setActiveAnimal(animal.id);
+    setAnimalSound(animal.sound);
+  };
 
-    // Define main colorful theme variables used in inline styles
-    const colors = {
-      pink: '#EC4899',
-      blue: '#2563EB',
-      yellow: '#F59E0B',
-      green: '#10B981',
-      purple: '#8B5CF6',
-      text: '#1E293B',
-      bg: '#FFFDFB' // Warm white
-    };
+  // Define main colorful theme variables used in inline styles
+  const colors = {
+    pink: '#EC4899',
+    blue: '#2563EB',
+    yellow: '#F59E0B',
+    green: '#10B981',
+    purple: '#8B5CF6',
+    text: '#1E293B',
+    bg: '#FFFDFB' // Warm white
+  };
 
-    return (
-      // Import playful rounded fonts
-      <div style={{ fontFamily: "'Quicksand', 'Fredoka', system-ui, sans-serif", color: colors.text, backgroundColor: colors.bg }}>
-        <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet" />
+  return (
+    // Import playful rounded fonts
+    <div style={{ fontFamily: "'Quicksand', 'Fredoka', system-ui, sans-serif", color: colors.text, backgroundColor: colors.bg }}>
+      <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet" />
 
-        <style>{`
+      <style>{`
         /* Global playful adjustments */
         h1, h2, h3, h4, h5, h6 { font-family: 'Fredoka', sans-serif; font-weight: 700; }
         
@@ -293,75 +304,87 @@ export default function EnhancedPreschoolHomePage() {
 
       `}</style>
 
-        {/* Top Bar - Made more colorful */}
-        <div className="py-2 text-center text-white fw-bold small" style={{ background: `linear-gradient(90deg, ${colors.pink}, ${colors.purple}, ${colors.blue}, ${colors.green})` }}>
-          <FaStar className="me-2" /> Admissions open for 2026–2027! <FaArrowRight className="mx-2" />
-          <Link href="/contact" className="text-white text-decoration-underline p-1 rounded btn-crayon" style={{ backgroundColor: 'rgba(255,255,255,0.2)' }}>
-            Book a Campus Tour
-          </Link>
-          <FaSmileWink className="ms-2" />
-        </div>
+      {/* Top Bar - Made more colorful */}
+      <div className="py-2 text-center text-white fw-bold small" style={{ background: `linear-gradient(90deg, ${colors.pink}, ${colors.purple}, ${colors.blue}, ${colors.green})` }}>
+        <FaStar className="me-2" /> Admissions open for 2026–2027! <FaArrowRight className="mx-2" />
+        <Link href="/contact" className="text-white text-decoration-underline p-1 rounded btn-crayon" style={{ backgroundColor: 'rgba(255,255,255,0.2)' }}>
+          Book a Campus Tour
+        </Link>
+        <FaSmileWink className="ms-2" />
+      </div>
 
-        <Navbar />
-        <HeroSection />
+      <Navbar />
+      <HeroSection />
 
-        {/* --- ABOUT SECTION --- */}
-        <section id="about" className="py-5 position-relative" style={{ backgroundColor: '#fff', borderBottom: `8px solid ${colors.yellow}` }}>
-          <div className="container py-4">
-            <div className="row align-items-center gy-5">
-              <div className="col-lg-5 text-center position-relative float-anim">
-                {/* Decorative blobs */}
-                <div className="position-absolute opacity-20" style={{ width: '100px', height: '100px', backgroundColor: colors.pink, borderRadius: '50%', top: '-20px', left: '20px' }}></div>
-                <div className="position-absolute opacity-20" style={{ width: '150px', height: '150px', backgroundColor: colors.blue, borderRadius: '30% 70% 70% 30% / 30% 30% 70% 70%', bottom: '-30px', right: '20px' }}></div>
+      {/* --- ABOUT SECTION --- */}
+      <section id="about" className="py-5 position-relative" style={{ backgroundColor: '#fff', borderBottom: `8px solid ${colors.yellow}` }}>
+        <div className="container py-4">
+          <div className="row align-items-center gy-5">
+            <div className="col-lg-5 text-center position-relative float-anim">
+              {/* Decorative blobs */}
+              <div className="position-absolute opacity-20" style={{ width: '100px', height: '100px', backgroundColor: colors.pink, borderRadius: '50%', top: '-20px', left: '20px' }}></div>
+              <div className="position-absolute opacity-20" style={{ width: '150px', height: '150px', backgroundColor: colors.blue, borderRadius: '30% 70% 70% 30% / 30% 30% 70% 70%', bottom: '-30px', right: '20px' }}></div>
 
-                <img
-                  src="./abouther.png"
-                  alt="Children playing together"
-                  className="img-fluid shadow-lg border-4"
-                  style={{
-                    width: '48%',
-                    maxHeight: '450px',
-                    objectFit: 'contain',
-                    borderStyle: 'solid',
-                    borderColor: colors.yellow
-                  }}
-                />
+              <img
+                src="./abouther.png"
+                alt="Children playing together"
+                className="img-fluid shadow-lg border-4"
+                style={{
+                  width: '48%',
+                  maxHeight: '450px',
+                  objectFit: 'contain',
+                  borderStyle: 'solid',
+                  borderColor: colors.yellow
+                }}
+              />
+            </div>
+            <div className="col-lg-7">
+              <div className="d-inline-flex align-items-center px-3 py-1 rounded-pill mb-3 shadow-sm" style={{ backgroundColor: '#FFFBEB', border: `2px solid ${colors.yellow}` }}>
+                <FaPencilAlt className="me-2" style={{ color: colors.yellow }} />
+                <h6 className="fw-bold text-uppercase m-0" style={{ color: colors.yellow, letterSpacing: '1px', fontSize: '0.85rem' }}>About Little Crayons</h6>
               </div>
-              <div className="col-lg-7">
-                <div className="d-inline-flex align-items-center px-3 py-1 rounded-pill mb-3 shadow-sm" style={{ backgroundColor: '#FFFBEB', border: `2px solid ${colors.yellow}` }}>
-                  <FaPencilAlt className="me-2" style={{ color: colors.yellow }} />
-                  <h6 className="fw-bold text-uppercase m-0" style={{ color: colors.yellow, letterSpacing: '1px', fontSize: '0.85rem' }}>About Little Crayons</h6>
-                </div>
-                <h2 className="fw-bold mb-3 display-5" style={{ color: colors.text }}>
-                  Thoughtfully Designed for Little Milestones
-                </h2>
-                <p className="text-secondary fs-5" style={{ lineHeight: 1.7, fontWeight: 500 }}>
-                  Early years set the stage for lifelong learning! Our smiling educators combine playful science, emotional growth, and creative exploration in colorful, safe spaces built just for curious minds.
-                </p>
-                <div className="row g-4 my-3">
-                  <div className="col-sm-6">
-                    <div className="d-flex align-items-center gap-3 p-3 kid-card kid-card-pink border shadow-sm">
-                      <div className="p-3 rounded-circle" style={{ backgroundColor: '#FCE7F3', color: colors.pink }}><FaHeart size={25} /></div>
-                      <div>
-                        <h6 className="fw-bold mb-0 fs-5" style={{ color: colors.text }}>Nurturing Spot</h6>
-                        <small className="text-muted fw-bold">1:6 Low Teacher Ratio</small>
-                      </div>
+              <h2 className="fw-bold mb-3 display-5" style={{ color: colors.text }}>
+                Thoughtfully Designed for Little Milestones
+              </h2>
+              <p className="text-secondary fs-5" style={{ lineHeight: 1.7, fontWeight: 500 }}>
+                Early years set the stage for lifelong learning! Our smiling educators combine playful science, emotional growth, and creative exploration in colorful, safe spaces built just for curious minds.
+              </p>
+              <div className="row g-4 my-3">
+                <div className="col-sm-6">
+                  <div className="d-flex align-items-center gap-3 p-3 kid-card kid-card-pink border shadow-sm">
+                    <div className="p-3 rounded-circle" style={{ backgroundColor: '#FCE7F3', color: colors.pink }}><FaHeart size={25} /></div>
+                    <div>
+                      <h6 className="fw-bold mb-0 fs-5" style={{ color: colors.text }}>Nurturing Spot</h6>
+                      <small className="text-muted fw-bold">1:6 Low Teacher Ratio</small>
                     </div>
                   </div>
-                  <div className="col-sm-6">
-                    <div className="d-flex align-items-center gap-3 p-3 kid-card kid-card-blue border shadow-sm">
-                      <div className="p-3 rounded-circle" style={{ backgroundColor: '#DBEAFE', color: colors.blue }}><FaBookReader size={25} /></div>
-                      <div>
-                        <h6 className="fw-bold mb-0 fs-5" style={{ color: colors.text }}>Fun Lessons</h6>
-                        <small className="text-muted fw-bold">STEM + Storytelling</small>
-                      </div>
+                </div>
+                <div className="col-sm-6">
+                  <div className="d-flex align-items-center gap-3 p-3 kid-card kid-card-blue border shadow-sm">
+                    <div className="p-3 rounded-circle" style={{ backgroundColor: '#DBEAFE', color: colors.blue }}><FaBookReader size={25} /></div>
+                    <div>
+                      <h6 className="fw-bold mb-0 fs-5" style={{ color: colors.text }}>Fun Lessons</h6>
+                      <small className="text-muted fw-bold">STEM + Storytelling</small>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
+      {/* --- STORY SECTION --- */}
+      <StorySection />
+
+      {/* --- PAGE BANNER AS BACKGROUND --- */}
+      <div className="banner-bg-wrapper">
+        <div className="banner-fixed-bg">
+          <PageBanner />
+        </div>
+      </div>
+
+      {/* --- PROGRAMS SECTION (Rides over the banner on scroll) --- */}
+      <section id="courses" className="py-5 position-relative" style={{ backgroundColor: '#F0F9FF', borderBottom: `8px solid ${colors.green}` }} />
 
         {/* --- PROGRAMS SECTION --- */}
         <section id="courses" className="py-5 position-relative" style={{ backgroundColor: '#F0F9FF', borderBottom: `8px solid ${colors.green}` }}>
@@ -633,189 +656,189 @@ export default function EnhancedPreschoolHomePage() {
               </div>
             </div>
           </div>
-        </section><section 
-      id="enquire" 
-      className="py-5 position-relative" 
-      style={{ 
-        backgroundColor: '#FFFBEB', 
-        borderTop: `8px solid ${colors.yellow}`, 
-        borderBottom: `8px solid ${colors.yellow}` 
-      }}
-    >
-      <div className="container py-4">
-        <div className="row align-items-center gy-5">
-          
-          {/* Left Column: Home Page Pitch & Perks */}
-          <div className="col-lg-5">
-            <div 
-              className="d-inline-flex align-items-center px-3 py-1 rounded-pill mb-3 shadow-sm bg-white" 
-              style={{ border: `2px solid ${colors.yellow}` }}
-            >
-              <FaPencilAlt className="me-2" style={{ color: colors.yellow }} />
-              <span className="fw-bold text-uppercase" style={{ color: colors.yellow, letterSpacing: '1px', fontSize: '0.85rem' }}>
-                Quick Enquiry
-              </span>
-            </div>
-            
-            <h2 className="fw-bold display-5 mb-3" style={{ color: colors.text }}>
-              Start Your Childs Journey With Us! 🎨
-            </h2>
-            
-            <p className="text-secondary fs-5 mb-4" style={{ fontWeight: 500, lineHeight: 1.6 }}>
-              Have questions or want to schedule a campus tour? Fill out this quick form and our admissions team will get in touch within 24 hours.
-            </p>
+        </section><section
+          id="enquire"
+          className="py-5 position-relative"
+          style={{
+            backgroundColor: '#FFFBEB',
+            borderTop: `8px solid ${colors.yellow}`,
+            borderBottom: `8px solid ${colors.yellow}`
+          }}
+        >
+          <div className="container py-4">
+            <div className="row align-items-center gy-5">
 
-            {/* Feature Highlights */}
-            <div className="d-flex flex-column gap-3 mb-4">
-              <div className="d-flex align-items-center gap-3 p-3 bg-white rounded-4 shadow-sm border-2" style={{ borderColor: '#FEF3C7' }}>
-                <div className="p-3 rounded-circle d-flex align-items-center justify-content-center" style={{ backgroundColor: '#FEF3C7', color: colors.yellow, width: '45px', height: '45px' }}>
-                  <FaCalendarAlt size={20} />
+              {/* Left Column: Home Page Pitch & Perks */}
+              <div className="col-lg-5">
+                <div
+                  className="d-inline-flex align-items-center px-3 py-1 rounded-pill mb-3 shadow-sm bg-white"
+                  style={{ border: `2px solid ${colors.yellow}` }}
+                >
+                  <FaPencilAlt className="me-2" style={{ color: colors.yellow }} />
+                  <span className="fw-bold text-uppercase" style={{ color: colors.yellow, letterSpacing: '1px', fontSize: '0.85rem' }}>
+                    Quick Enquiry
+                  </span>
                 </div>
-                <div>
-                  <h6 className="fw-bold mb-0" style={{ color: colors.text }}>Free Guided Campus Tours</h6>
-                  <small className="text-muted fw-bold">Mon - Fri • 9:00 AM to 3:00 PM</small>
+
+                <h2 className="fw-bold display-5 mb-3" style={{ color: colors.text }}>
+                  Start Your Childs Journey With Us! 🎨
+                </h2>
+
+                <p className="text-secondary fs-5 mb-4" style={{ fontWeight: 500, lineHeight: 1.6 }}>
+                  Have questions or want to schedule a campus tour? Fill out this quick form and our admissions team will get in touch within 24 hours.
+                </p>
+
+                {/* Feature Highlights */}
+                <div className="d-flex flex-column gap-3 mb-4">
+                  <div className="d-flex align-items-center gap-3 p-3 bg-white rounded-4 shadow-sm border-2" style={{ borderColor: '#FEF3C7' }}>
+                    <div className="p-3 rounded-circle d-flex align-items-center justify-content-center" style={{ backgroundColor: '#FEF3C7', color: colors.yellow, width: '45px', height: '45px' }}>
+                      <FaCalendarAlt size={20} />
+                    </div>
+                    <div>
+                      <h6 className="fw-bold mb-0" style={{ color: colors.text }}>Free Guided Campus Tours</h6>
+                      <small className="text-muted fw-bold">Mon - Fri • 9:00 AM to 3:00 PM</small>
+                    </div>
+                  </div>
+
+                  <div className="d-flex align-items-center gap-3 p-3 bg-white rounded-4 shadow-sm border-2" style={{ borderColor: '#FCE7F3' }}>
+                    <div className="p-3 rounded-circle d-flex align-items-center justify-content-center" style={{ backgroundColor: '#FCE7F3', color: colors.pink, width: '45px', height: '45px' }}>
+                      <FaHeart size={20} />
+                    </div>
+                    <div>
+                      <h6 className="fw-bold mb-0" style={{ color: colors.text }}>Zero Obligation Trial Day</h6>
+                      <small className="text-muted fw-bold">Let your little one experience a full morning!</small>
+                    </div>
+                  </div>
                 </div>
               </div>
 
-              <div className="d-flex align-items-center gap-3 p-3 bg-white rounded-4 shadow-sm border-2" style={{ borderColor: '#FCE7F3' }}>
-                <div className="p-3 rounded-circle d-flex align-items-center justify-content-center" style={{ backgroundColor: '#FCE7F3', color: colors.pink, width: '45px', height: '45px' }}>
-                  <FaHeart size={20} />
-                </div>
-                <div>
-                  <h6 className="fw-bold mb-0" style={{ color: colors.text }}>Zero Obligation Trial Day</h6>
-                  <small className="text-muted fw-bold">Let your little one experience a full morning!</small>
+              {/* Right Column: Home Design Card + Contact Form Fields */}
+              <div className="col-lg-7">
+                <div className="card border-0 shadow-lg p-4 p-md-5 position-relative" style={{ borderRadius: '35px', backgroundColor: '#FFFFFF' }}>
+
+                  {/* Decorative Admissions Badge */}
+                  <div
+                    className="position-absolute top-0 start-50 translate-middle badge rounded-pill px-4 py-2 shadow-sm text-white fs-6"
+                    style={{ backgroundColor: colors.pink, border: '3px solid #FFF' }}
+                  >
+                    ✨ Admissions 2026–2027 Open!
+                  </div>
+
+                  <form onSubmit={handleSubmit} className="mt-3">
+                    <h3 className="fw-bold text-center mb-4" style={{ color: colors.text }}>
+                      Enquire Now 🎈
+                    </h3>
+
+                    <div className="row g-3">
+
+                      {/* Parent / Full Name */}
+                      <div className="col-md-6">
+                        <label className="form-label fw-bold small text-secondary mb-1">Parents / Guardians Full Name *</label>
+                        <div className="input-group">
+                          <span className="input-group-text bg-light border-0 rounded-start-pill ps-3" style={{ color: colors.purple }}>
+                            <FaUser />
+                          </span>
+                          <input
+                            type="text"
+                            name="fullName"
+                            required
+                            value={formData.fullName}
+                            onChange={handleInputChange}
+                            placeholder="e.g. Sarah Jenkins"
+                            className="form-control bg-light border-0 py-2 rounded-end-pill fw-bold"
+                          />
+                        </div>
+                      </div>
+
+                      {/* Email Address */}
+                      <div className="col-md-6">
+                        <label className="form-label fw-bold small text-secondary mb-1">Email Address *</label>
+                        <div className="input-group">
+                          <span className="input-group-text bg-light border-0 rounded-start-pill ps-3" style={{ color: colors.blue }}>
+                            <FaEnvelope />
+                          </span>
+                          <input
+                            type="email"
+                            name="email"
+                            required
+                            value={formData.email}
+                            onChange={handleInputChange}
+                            placeholder="e.g. sarah@example.com"
+                            className="form-control bg-light border-0 py-2 rounded-end-pill fw-bold"
+                          />
+                        </div>
+                      </div>
+
+                      {/* Mobile Number */}
+                      <div className="col-md-6">
+                        <label className="form-label fw-bold small text-secondary mb-1">Mobile Number *</label>
+                        <div className="input-group">
+                          <span className="input-group-text bg-light border-0 rounded-start-pill ps-3" style={{ color: colors.green }}>
+                            <FaPhone />
+                          </span>
+                          <input
+                            type="tel"
+                            name="mobile"
+                            required
+                            value={formData.mobile}
+                            onChange={handleInputChange}
+                            placeholder="e.g. 9876543210"
+                            className="form-control bg-light border-0 py-2 rounded-end-pill fw-bold"
+                          />
+                        </div>
+                      </div>
+
+                      {/* Enquiry For Dropdown */}
+                      <div className="col-md-6">
+                        <label className="form-label fw-bold small text-secondary mb-1">Enquiry For (Select Program) *</label>
+                        <div className="input-group">
+                          <span className="input-group-text bg-light border-0 rounded-start-pill ps-3" style={{ color: colors.pink }}>
+                            <FaChild />
+                          </span>
+                          <select
+                            name="enquiryFor"
+                            required
+                            value={formData.enquiryFor}
+                            onChange={handleInputChange}
+                            className="form-select bg-light border-0 py-2 rounded-end-pill fw-bold text-secondary"
+                          >
+                            <option value="">Choose an enquiry type...</option>
+                            <option value="Playgroup Admission">Playgroup (1.5 - 2.5 Yrs)</option>
+                            <option value="Nursery Admission">Nursery (2.5 - 3.5 Yrs)</option>
+                            <option value="Junior KG Admission">Junior KG (3.5 - 4.5 Yrs)</option>
+                            <option value="Senior KG Admission">Senior KG (4.5 - 5.5 Yrs)</option>
+                            <option value="Daycare">Daycare & After School</option>
+                            <option value="Franchise enquiry">Franchise enquiry</option>
+                            <option value="General enquiry">General enquiry</option>
+                          </select>
+                        </div>
+                      </div>
+
+                      {/* Submit Button */}
+                      <div className="col-12 mt-4 text-center">
+                        <button
+                          type="submit"
+                          className="btn text-white w-100 py-3 fs-5 d-flex align-items-center justify-content-center gap-2 shadow rounded-pill border-0"
+                          style={{ backgroundColor: colors.pink, fontWeight: '700' }}
+                        >
+                          <FaPaperPlane size={18} /> SUBMIT ENQUIRY
+                        </button>
+                        <small className="text-muted mt-2 d-block fw-bold">🔒 We respect your privacy. No spam ever.</small>
+                      </div>
+
+                    </div>
+                  </form>
+
                 </div>
               </div>
+
             </div>
           </div>
-
-          {/* Right Column: Home Design Card + Contact Form Fields */}
-          <div className="col-lg-7">
-            <div className="card border-0 shadow-lg p-4 p-md-5 position-relative" style={{ borderRadius: '35px', backgroundColor: '#FFFFFF' }}>
-              
-              {/* Decorative Admissions Badge */}
-              <div 
-                className="position-absolute top-0 start-50 translate-middle badge rounded-pill px-4 py-2 shadow-sm text-white fs-6" 
-                style={{ backgroundColor: colors.pink, border: '3px solid #FFF' }}
-              >
-                ✨ Admissions 2026–2027 Open!
-              </div>
-
-              <form onSubmit={handleSubmit} className="mt-3">
-                <h3 className="fw-bold text-center mb-4" style={{ color: colors.text }}>
-                  Enquire Now 🎈
-                </h3>
-
-                <div className="row g-3">
-                  
-                  {/* Parent / Full Name */}
-                  <div className="col-md-6">
-                    <label className="form-label fw-bold small text-secondary mb-1">Parents / Guardians Full Name *</label>
-                    <div className="input-group">
-                      <span className="input-group-text bg-light border-0 rounded-start-pill ps-3" style={{ color: colors.purple }}>
-                        <FaUser />
-                      </span>
-                      <input
-                        type="text"
-                        name="fullName"
-                        required
-                        value={formData.fullName}
-                        onChange={handleInputChange}
-                        placeholder="e.g. Sarah Jenkins"
-                        className="form-control bg-light border-0 py-2 rounded-end-pill fw-bold"
-                      />
-                    </div>
-                  </div>
-
-                  {/* Email Address */}
-                  <div className="col-md-6">
-                    <label className="form-label fw-bold small text-secondary mb-1">Email Address *</label>
-                    <div className="input-group">
-                      <span className="input-group-text bg-light border-0 rounded-start-pill ps-3" style={{ color: colors.blue }}>
-                        <FaEnvelope />
-                      </span>
-                      <input
-                        type="email"
-                        name="email"
-                        required
-                        value={formData.email}
-                        onChange={handleInputChange}
-                        placeholder="e.g. sarah@example.com"
-                        className="form-control bg-light border-0 py-2 rounded-end-pill fw-bold"
-                      />
-                    </div>
-                  </div>
-
-                  {/* Mobile Number */}
-                  <div className="col-md-6">
-                    <label className="form-label fw-bold small text-secondary mb-1">Mobile Number *</label>
-                    <div className="input-group">
-                      <span className="input-group-text bg-light border-0 rounded-start-pill ps-3" style={{ color: colors.green }}>
-                        <FaPhone />
-                      </span>
-                      <input
-                        type="tel"
-                        name="mobile"
-                        required
-                        value={formData.mobile}
-                        onChange={handleInputChange}
-                        placeholder="e.g. 9876543210"
-                        className="form-control bg-light border-0 py-2 rounded-end-pill fw-bold"
-                      />
-                    </div>
-                  </div>
-
-                  {/* Enquiry For Dropdown */}
-                  <div className="col-md-6">
-                    <label className="form-label fw-bold small text-secondary mb-1">Enquiry For (Select Program) *</label>
-                    <div className="input-group">
-                      <span className="input-group-text bg-light border-0 rounded-start-pill ps-3" style={{ color: colors.pink }}>
-                        <FaChild />
-                      </span>
-                      <select
-                        name="enquiryFor"
-                        required
-                        value={formData.enquiryFor}
-                        onChange={handleInputChange}
-                        className="form-select bg-light border-0 py-2 rounded-end-pill fw-bold text-secondary"
-                      >
-                        <option value="">Choose an enquiry type...</option>
-                        <option value="Playgroup Admission">Playgroup (1.5 - 2.5 Yrs)</option>
-                        <option value="Nursery Admission">Nursery (2.5 - 3.5 Yrs)</option>
-                        <option value="Junior KG Admission">Junior KG (3.5 - 4.5 Yrs)</option>
-                        <option value="Senior KG Admission">Senior KG (4.5 - 5.5 Yrs)</option>
-                        <option value="Daycare">Daycare & After School</option>
-                        <option value="Franchise enquiry">Franchise enquiry</option>
-                        <option value="General enquiry">General enquiry</option>
-                      </select>
-                    </div>
-                  </div>
-
-                  {/* Submit Button */}
-                  <div className="col-12 mt-4 text-center">
-                    <button
-                      type="submit"
-                      className="btn text-white w-100 py-3 fs-5 d-flex align-items-center justify-content-center gap-2 shadow rounded-pill border-0"
-                      style={{ backgroundColor: colors.pink, fontWeight: '700' }}
-                    >
-                      <FaPaperPlane size={18} /> SUBMIT ENQUIRY
-                    </button>
-                    <small className="text-muted mt-2 d-block fw-bold">🔒 We respect your privacy. No spam ever.</small>
-                  </div>
-
-                </div>
-              </form>
-
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
+        </section>
 
 
 
         <Footer />
-      </div>
-    );
-  }
+    </div>
+  );
+}
