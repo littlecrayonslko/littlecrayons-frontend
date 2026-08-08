@@ -2,8 +2,6 @@
 /* eslint-disable @next/next/no-page-custom-font */
 /* eslint-disable @next/next/no-img-element */
 "use client";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import Link from 'next/link'; // <--- ADD THIS LINE
 import React, { useState, useEffect, useRef } from 'react';
 import {
