@@ -2,7 +2,16 @@
 "use client";
 
 import React, { useState } from 'react';
-import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope, FaGlobe, FaPaperPlane, FaChild } from 'react-icons/fa';
+import { 
+  FaMapMarkerAlt, 
+  FaPhoneAlt, 
+  FaEnvelope, 
+  FaGlobe, 
+  FaPaperPlane, 
+  FaChild, 
+  FaCheckCircle, 
+  FaTimes 
+} from 'react-icons/fa';
 import Navbar from '../components/navbar';
 import PageBanner from '../components/PageBanner';
 
@@ -14,14 +23,52 @@ export default function ContactPage() {
         enquiryFor: ''
     });
 
+    const [loading, setLoading] = useState(false);
+    const [showModal, setShowModal] = useState(false);
+    const [submittedData, setSubmittedData] = useState({
+        name: '',
+        enquiryFor: ''
+    });
+
     const handleInputChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log("Form Submitted:", formData);
-        alert("🎉 Thank you! We have received your enquiry and will contact you shortly.");
+        setLoading(true);
+
+        const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxzknKa2BU5p2Y46EpbEVbiglz7TwiEV1nl31SBE7MuRHfMpzyNJIsCsnXIfayn0WI/exec";
+
+        try {
+            await fetch(GOOGLE_SCRIPT_URL, {
+                method: "POST",
+                mode: "no-cors",
+                headers: {
+                    "Content-Type": "text/plain;charset=utf-8",
+                },
+                body: JSON.stringify(formData),
+            });
+
+            setSubmittedData({
+                name: formData.fullName,
+                enquiryFor: formData.enquiryFor
+            });
+
+            setShowModal(true);
+
+            setFormData({
+                fullName: '',
+                email: '',
+                mobile: '',
+                enquiryFor: ''
+            });
+        } catch (error) {
+            console.error("Submission error:", error);
+            alert("Oops! Something went wrong. Please try again later.");
+        } finally {
+            setLoading(false);
+        }
     };
 
     return (
@@ -95,12 +142,19 @@ export default function ContactPage() {
                         display: inline-flex;
                         align-items: center;
                         gap: 8px;
+                        cursor: pointer;
                     }
 
                     .btn-submit-red:hover {
                         transform: translateY(-2px);
                         box-shadow: 0 8px 20px rgba(255, 23, 68, 0.4);
                         opacity: 0.95;
+                    }
+
+                    .btn-submit-red:disabled {
+                        opacity: 0.6;
+                        cursor: not-allowed;
+                        transform: none;
                     }
 
                     .info-card {
@@ -141,6 +195,98 @@ export default function ContactPage() {
                     .pin-container:hover {
                         transform: translateY(-5px) rotate(3deg);
                     }
+
+                    /* Modal Styles */
+                    .modal-overlay {
+                        position: fixed;
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        bottom: 0;
+                        background: rgba(15, 23, 42, 0.65);
+                        backdrop-filter: blur(5px);
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        z-index: 1050;
+                        padding: 16px;
+                        animation: modalFadeIn 0.2s ease-out;
+                    }
+
+                    .modal-box {
+                        background: #FFFFFF;
+                        border-radius: 24px;
+                        border: 3px solid #FFE0B2;
+                        max-width: 440px;
+                        width: 100%;
+                        padding: 34px 28px;
+                        text-align: center;
+                        position: relative;
+                        box-shadow: 0 20px 30px rgba(255, 152, 0, 0.15);
+                        animation: modalPopUp 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                    }
+
+                    .modal-close-btn {
+                        position: absolute;
+                        top: 16px;
+                        right: 16px;
+                        background: #F3F4F6;
+                        border: none;
+                        border-radius: 50%;
+                        width: 32px;
+                        height: 32px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        color: #64748B;
+                        cursor: pointer;
+                        transition: all 0.2s ease;
+                    }
+
+                    .modal-close-btn:hover {
+                        background: #E2E8F0;
+                        color: #0F172A;
+                    }
+
+                    .success-icon-wrap {
+                        width: 76px;
+                        height: 76px;
+                        background: #ECFDF5;
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        margin: 0 auto 18px auto;
+                    }
+
+                    .modal-confirm-btn {
+                        background: linear-gradient(135deg, #FF5252 0%, #FF1744 100%);
+                        color: #FFFFFF;
+                        font-weight: 800;
+                        border: none;
+                        border-radius: 50px;
+                        padding: 12px 28px;
+                        font-size: 1rem;
+                        width: 100%;
+                        cursor: pointer;
+                        box-shadow: 0 4px 12px rgba(255, 23, 68, 0.25);
+                        transition: all 0.2s ease;
+                    }
+
+                    .modal-confirm-btn:hover {
+                        transform: translateY(-1px);
+                        box-shadow: 0 6px 15px rgba(255, 23, 68, 0.35);
+                    }
+
+                    @keyframes modalFadeIn {
+                        from { opacity: 0; }
+                        to { opacity: 1; }
+                    }
+
+                    @keyframes modalPopUp {
+                        from { transform: scale(0.9); opacity: 0; }
+                        to { transform: scale(1); opacity: 1; }
+                    }
                 `}</style>
 
                 <div className="container py-4">
@@ -157,7 +303,6 @@ export default function ContactPage() {
 
                     {/* Form & Contact Details Grid */}
                     <div className="row g-4 align-items-stretch justify-content-center mb-5">
-                        
                         {/* LEFT COLUMN: Preschool enquiry Form */}
                         <div className="col-lg-6 col-md-10">
                             <div className="form-card p-4 p-md-5 h-100">
@@ -244,8 +389,12 @@ export default function ContactPage() {
 
                                     {/* Submit Button */}
                                     <div className="text-center pt-2">
-                                        <button type="submit" className="btn-submit-red">
-                                            <FaPaperPlane /> SUBMIT ENQUIRY
+                                        <button 
+                                            type="submit" 
+                                            className="btn-submit-red"
+                                            disabled={loading}
+                                        >
+                                            <FaPaperPlane /> {loading ? "SENDING..." : "SUBMIT ENQUIRY"}
                                         </button>
                                     </div>
                                 </form>
@@ -255,8 +404,6 @@ export default function ContactPage() {
                         {/* RIGHT COLUMN: Location Pin & School Details */}
                         <div className="col-lg-5 col-md-10 offset-lg-1">
                             <div className="info-card h-100 d-flex flex-column justify-content-center text-center text-lg-start">
-                                
-                                {/* Pin Graphic Container (Unchanged Image Link) */}
                                 <div className="pin-container mb-3 text-center text-lg-start">
                                     <img
                                         src="https://cdn-icons-png.flaticon.com/512/684/684908.png"
@@ -265,15 +412,12 @@ export default function ContactPage() {
                                     />
                                 </div>
 
-                                {/* Preschool Title */}
                                 <h2 className="info-title mb-1">Little Crayons PreSchool</h2>
                                 <p className="text-muted small mb-4 fw-bold">
                                     <FaChild className="text-warning me-1" /> Where Learning Begins With Fun!
                                 </p>
 
-                                {/* Address Details */}
                                 <div className="d-flex flex-column gap-3">
-                                    {/* Location */}
                                     <div className="d-flex align-items-start gap-3">
                                         <div className="info-badge-icon bg-danger-subtle text-danger">
                                             <FaMapMarkerAlt />
@@ -286,7 +430,6 @@ export default function ContactPage() {
                                         </div>
                                     </div>
 
-                                    {/* Phone */}
                                     <div className="d-flex align-items-center gap-3">
                                         <div className="info-badge-icon bg-success-subtle text-success">
                                             <FaPhoneAlt />
@@ -299,7 +442,6 @@ export default function ContactPage() {
                                         </div>
                                     </div>
 
-                                    {/* Email */}
                                     <div className="d-flex align-items-center gap-3">
                                         <div className="info-badge-icon bg-warning-subtle text-warning">
                                             <FaEnvelope />
@@ -312,7 +454,6 @@ export default function ContactPage() {
                                         </div>
                                     </div>
 
-                                    {/* Website */}
                                     <div className="d-flex align-items-center gap-3">
                                         <div className="info-badge-icon bg-info-subtle text-info">
                                             <FaGlobe />
@@ -325,15 +466,46 @@ export default function ContactPage() {
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
-
                     </div>
                 </div>
             </section>
 
-            {/* Bottom Graphic Banner */}
+            {/* Custom Success Modal */}
+            {showModal && (
+                <div className="modal-overlay" onClick={() => setShowModal(false)}>
+                    <div className="modal-box" onClick={(e) => e.stopPropagation()}>
+                        <button 
+                            className="modal-close-btn" 
+                            onClick={() => setShowModal(false)}
+                            aria-label="Close modal"
+                        >
+                            <FaTimes size={14} />
+                        </button>
+
+                        <div className="success-icon-wrap">
+                            <FaCheckCircle color="#10B981" size={42} />
+                        </div>
+
+                        <h3 style={{ color: '#0F172A', fontWeight: 800, fontSize: '1.5rem', marginBottom: '8px' }}>
+                            Enquiry Submitted! 🎉
+                        </h3>
+                        
+                        <p style={{ color: '#64748B', fontSize: '0.95rem', marginBottom: '24px', lineHeight: 1.6 }}>
+                            Thank you, <strong style={{ color: '#0F172A' }}>{submittedData.name}</strong>! We have received your enquiry for <strong style={{ color: '#FF5722' }}>{submittedData.enquiryFor}</strong>. Our admissions team will reach out to you shortly.
+                        </p>
+
+                        <button 
+                            className="modal-confirm-btn" 
+                            onClick={() => setShowModal(false)}
+                        >
+                            Awesome, Thanks!
+                        </button>
+                    </div>
+                </div>
+            )}
+
             <PageBanner />
         </div>
     );
