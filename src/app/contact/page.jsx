@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Navbar from '../components/navbar';
 import PageBanner from '../components/PageBanner';
 import { 
@@ -10,7 +10,8 @@ import {
   FaEnvelope, 
   FaGlobe, 
   FaCheckCircle, 
-  FaTimes 
+  FaTimes,
+  FaShieldAlt
 } from 'react-icons/fa';
 
 export default function ContactPage() {
@@ -28,6 +29,20 @@ export default function ContactPage() {
     enquiryFor: ''
   });
 
+  // Math Captcha States
+  const [showMathModal, setShowMathModal] = useState(false);
+  const [mathProblem, setMathProblem] = useState({ num1: 0, num2: 0, answer: 0 });
+  const [userMathInput, setUserMathInput] = useState('');
+  const [mathError, setMathError] = useState('');
+
+  const generateMathProblem = () => {
+    const n1 = Math.floor(Math.random() * 9) + 1;
+    const n2 = Math.floor(Math.random() * 9) + 1;
+    setMathProblem({ num1: n1, num2: n2, answer: n1 + n2 });
+    setUserMathInput('');
+    setMathError('');
+  };
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -36,8 +51,28 @@ export default function ContactPage() {
     }));
   };
 
-  const handleSubmit = async (e) => {
+  // Triggered on Form Submit - Intercepts to open the Math verification modal
+  const handlePreSubmit = (e) => {
     e.preventDefault();
+    generateMathProblem();
+    setShowMathModal(true);
+  };
+
+  // Validates Math answer and sends data if correct
+  const handleMathVerification = async (e) => {
+    e.preventDefault();
+
+    if (parseInt(userMathInput, 10) !== mathProblem.answer) {
+      setMathError('Incorrect answer. Please try again.');
+      generateMathProblem();
+      return;
+    }
+
+    setShowMathModal(false);
+    await sendFormData();
+  };
+
+  const sendFormData = async () => {
     setLoading(true);
 
     const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz2tD9thXOCoAiKmRsmLJH2ofd0NP0bTZCGOcs9VI1y05WGVTwIIyMgNDoZckcvy5Qg/exec";
@@ -145,6 +180,17 @@ export default function ContactPage() {
             color: #111827;
           }
 
+          .icon-badge-wrap {
+            width: 70px;
+            height: 70px;
+            background: #EEF2FF;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px auto;
+          }
+
           .success-icon-wrap {
             width: 70px;
             height: 70px;
@@ -200,7 +246,7 @@ export default function ContactPage() {
                   For more information please fill the form
                 </div>
 
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={handlePreSubmit}>
                   <div className="mb-3">
                     <label className="form-label small fw-semibold text-secondary mb-1">Full Name</label>
                     <input
@@ -313,6 +359,61 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
+
+      {/* Math Verification Modal */}
+      {showMathModal && (
+        <div className="modal-overlay" onClick={() => setShowMathModal(false)}>
+          <div className="modal-box" onClick={(e) => e.stopPropagation()}>
+            <button 
+              className="modal-close-btn" 
+              onClick={() => setShowMathModal(false)}
+              aria-label="Close modal"
+            >
+              <FaTimes size={14} />
+            </button>
+
+            <div className="icon-badge-wrap">
+              <FaShieldAlt color="#4F46E5" size={32} />
+            </div>
+
+            <h3 style={{ color: '#111827', fontWeight: 800, fontSize: '1.35rem', marginBottom: '8px' }}>
+              Security Check
+            </h3>
+            
+            <p style={{ color: '#6B7280', fontSize: '0.9rem', marginBottom: '16px' }}>
+              Please solve this quick problem to verify and submit:
+            </p>
+
+            <form onSubmit={handleMathVerification}>
+              <div className="p-3 mb-3" style={{ background: '#F3F4F6', borderRadius: '8px', fontSize: '1.25rem', fontWeight: 700, color: '#111827' }}>
+                {mathProblem.num1} + {mathProblem.num2} = ?
+              </div>
+
+              <input
+                type="number"
+                placeholder="Enter your answer"
+                className="custom-input mb-2 text-center"
+                style={{ fontSize: '1.1rem', fontWeight: 600 }}
+                value={userMathInput}
+                onChange={(e) => setUserMathInput(e.target.value)}
+                autoFocus
+                required
+              />
+
+              {mathError && (
+                <p className="text-danger small fw-semibold mb-3">{mathError}</p>
+              )}
+
+              <button 
+                type="submit" 
+                className="modal-btn-confirm mt-2"
+              >
+                Verify & Send
+              </button>
+            </form>
+          </div>
+        </div>
+      )}
 
       {/* Success Modal */}
       {showModal && (
