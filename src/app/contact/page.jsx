@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Navbar from '../components/navbar';
 import PageBanner from '../components/PageBanner';
 import { 
@@ -34,6 +34,15 @@ export default function ContactPage() {
   const [mathProblem, setMathProblem] = useState({ num1: 0, num2: 0, answer: 0 });
   const [userMathInput, setUserMathInput] = useState('');
   const [mathError, setMathError] = useState('');
+
+  // Restrict to digits only and maximum 10 digits
+  const handlePhoneChange = (e) => {
+    const value = e.target.value.replace(/\D/g, "").slice(0, 10);
+    setFormData((prev) => ({
+      ...prev,
+      mobile: value
+    }));
+  };
 
   const generateMathProblem = () => {
     const n1 = Math.floor(Math.random() * 9) + 1;
@@ -278,10 +287,13 @@ export default function ContactPage() {
                     <input
                       type="tel"
                       name="mobile"
-                      placeholder="Mobile No"
+                      placeholder="Mobile No (10 digits)"
                       className="custom-input"
                       value={formData.mobile}
-                      onChange={handleInputChange}
+                      onChange={handlePhoneChange}
+                      maxLength={10}
+                      pattern="[0-9]{10}"
+                      title="Please enter a valid 10-digit mobile number"
                       required
                     />
                   </div>
