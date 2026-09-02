@@ -44,17 +44,54 @@ import "swiper/css/pagination";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import "./Home.css";
 import StorySection from "./components/StorySection";
+import EnquiryPopup from './components/enquiry';
 
 export default function EnhancedPreschoolHomePage() {
   const [activeTestimonial, setActiveTestimonial] = useState(0);
   const [galleryIndex, setGalleryIndex] = useState(0);
-
   // State for FAQ toggle
   const [openFaq, setOpenFaq] = useState(0); // Open first one by default for engagement
-
   // State for Kids Animal Playground
   const [animalSound, setAnimalSound] = useState("Click a friend to hear them speak!");
   const [activeAnimal, setActiveAnimal] = useState(null);
+  const [showEnquiryPopup, setShowEnquiryPopup] = useState(false);
+  const scrollActionsRef = useRef(0);
+  const triggeredRef = useRef(false);
+
+  useEffect(() => {
+    // Wheel event for desktop mice & trackpads
+    const handleWheel = (e) => {
+      if (triggeredRef.current) return;
+      if (e.deltaY > 0) {
+        scrollActionsRef.current += 1;
+        if (scrollActionsRef.current >= 2) {
+          triggeredRef.current = true;
+          setShowEnquiryPopup(true);
+          cleanup();
+        }
+      }
+    };
+
+    // Standard scroll position for touchscreens/mobile swipes
+    const handleScroll = () => {
+      if (triggeredRef.current) return;
+      if (window.scrollY > 500) {
+        triggeredRef.current = true;
+        setShowEnquiryPopup(true);
+        cleanup();
+      }
+    };
+
+    const cleanup = () => {
+      window.removeEventListener('wheel', handleWheel);
+      window.removeEventListener('scroll', handleScroll);
+    };
+
+    window.addEventListener('wheel', handleWheel, { passive: true });
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    return cleanup;
+  }, []);
 
   const galleryImages = [
     {
@@ -79,27 +116,27 @@ export default function EnhancedPreschoolHomePage() {
 
   const testimonials = [
     {
-      name: "Dr. Eleanor Vance",
+      name: "Esha Singh",
       role: "Parent & Child Psychologist",
       text: "The balanced focus between emotional security and cognitive growth at Little Crayons is exceptional. My daughter thrives here every day.",
       stars: 5,
-      avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80",
+      avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlPW920r1vvOHvHWsN8LBoADTIUk_Mkxk6E50Kwna1xQ&s=10",
       bgColor: "#DBEAFE" // Light Blue
     },
     {
-      name: "Michael & Clara Rossi",
+      name: "Aarav Khanna",
       role: "Parents of Ethan (Age 3)",
       text: "Extremely professional leadership coupled with a genuine, warm teaching staff. The progress in Ethan's communication has been remarkable.",
       stars: 5,
-      avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80",
+      avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjbLLGXbDG_Lk6gc4r34IQ8ojGWjsXe46rFlGEPhttVQ&s=10",
       bgColor: "#FCE7F3" // Light Pink
     },
     {
-      name: "Sophia Martinez",
+      name: "Samar Sharma",
       role: "Parent of Oliver (Age 4)",
       text: "Clean, secure, and thoughtfully designed facilities. The curriculum prepares kids for real-world confidence without rushing their childhood.",
       stars: 5,
-      avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=200&q=80",
+      avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2fyfrUkyKoOvdG1pQRZd2ihYXG8lE0pRN-aufcyrNtw&s=10",
       bgColor: "#FEF3C7" // Light Yellow
     }
   ];
@@ -156,7 +193,6 @@ export default function EnhancedPreschoolHomePage() {
     console.log("Form Submitted:", formData);
     alert("🎉 Thank you! We have received your enquiry and will contact you shortly.");
   };
-
 
 
   useEffect(() => {
@@ -313,6 +349,11 @@ export default function EnhancedPreschoolHomePage() {
 
       <Navbar />
       <HeroSection />
+
+      <EnquiryPopup 
+        isOpen={showEnquiryPopup} 
+        onClose={() => setShowEnquiryPopup(false)} 
+      />
 
       {/* --- ABOUT SECTION --- */}
       <section id="about" className="py-5 position-relative" style={{ backgroundColor: '#fff', borderBottom: `8px solid ${colors.yellow}` }}>

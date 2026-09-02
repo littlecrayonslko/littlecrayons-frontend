@@ -94,12 +94,12 @@ const ACTIVITIES_LIST = [
 ];
 
 const GALLERY_PHOTOS = [
-    { id: 1, title: "Painting Wall Display", category: "Art", src: "https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?auto=format&fit=crop&w=800&q=80" },
-    { id: 2, title: "Outdoor Splash & Play Day", category: "Sports", src: "https://images.unsplash.com/photo-1472162072942-cd5147eb3902?auto=format&fit=crop&w=800&q=80" },
-    { id: 3, title: "Story Theater Performance", category: "Drama", src: "https://images.unsplash.com/photo-1485546246426-74dc88dec4d9?auto=format&fit=crop&w=800&q=80" },
-    { id: 4, title: "STEM Physics Track Lab", category: "STEM", src: "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=80" },
-    { id: 5, title: "Puppet Show Corner", category: "Arts", src: "https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=800&q=80" },
-    { id: 6, title: "Yoga & Stretching Class", category: "Sports", src: "https://images.unsplash.com/photo-1545205597-3d9d02c29597?auto=format&fit=crop&w=800&q=80" }
+    { id: 1, title: "Painting Wall Display", category: "Art", src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9g5GJOa2vSVzHbRZZNezKHXXSvUCKKyb3QVBvD_HDUg&s=10" },
+    { id: 2, title: "Outdoor Splash & Play Day", category: "Sports", src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIywkUVnqWSLcGKlx6YVlrlIUuaV13EeQ7Xw9kbYR_PQ&s=10" },
+    { id: 3, title: "Story Theater Performance", category: "Drama", src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGCq9mkmPNBR3jFHkbXF1TIJPuH8fboT_TvaiypsHqIw&s=10" },
+    { id: 4, title: "STEM Physics Track Lab", category: "STEM", src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEveQDDSjjAX_XTM-Ea5s_QrVSyTBHixTeOErtWEdzqw&s=10" },
+    { id: 5, title: "Puppet Show Corner", category: "Arts", src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMad6ydcalXTK93iNYn6wFtZhfd1plE9hotZfoxPRLzw&s=10" },
+    { id: 6, title: "Yoga & Stretching Class", category: "Sports", src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZiQKvt21MFt_qmoGQgHRxtchapvM8ZSBXpv5DgBZFbg&s=10" }
 ];
 
 const FEATURED_SLIDES = [

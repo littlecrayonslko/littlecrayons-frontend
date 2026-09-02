@@ -35,24 +35,24 @@ export default function AboutUsPage() {
   
   const teamMembers = [
     {
-      name: "Sarah Jenkins",
+      name: "Nikita",
       role: "Head of Preschool & Founder",
       exp: "15+ Yrs Experience",
-      image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=500&q=80",
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThCx_KlK4keFA-i7-hkjWxsHSY7vuPA_Pdj8cbUTZuag&s=10",
       quote: "Every child is a natural explorer. We just give them the compass!"
     },
     {
-      name: "Marcus Thorne",
+      name: "vijay yadav",
       role: "Lead STEM & Early Logic Coach",
       exp: "10+ Yrs Experience",
-      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=500&q=80",
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSptCi9Qo-5LQUwALNP68UNKTi0XucAnIQYXjXY1QmdUg&s=10",
       quote: "Building curiosity through play is how future innovators start."
     },
     {
-      name: "Elena Rostova",
+      name: "Amit Singhania",
       role: "Child Psychology & Arts Lead",
       exp: "8+ Yrs Experience",
-      image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=500&q=80",
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQY82p0sjBtgGYKVhKgngANhxXCea1VigXP_EUHMjlA015elyQswMHa_rg&s=10",
       quote: "Art and storytelling unlock emotional intelligence like nothing else."
     }
   ];
