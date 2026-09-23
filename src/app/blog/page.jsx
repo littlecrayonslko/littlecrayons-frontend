@@ -81,7 +81,9 @@ export default function BlogPage() {
 
       {/* --- HEADER & BANNER --- */}
       <Navbar />
-      <h1 className="text-center my-4 fw-extrabold" style={{ color: '#FF5722' }}>Our Articles & Insights</h1>
+      <h1 className="text-center my-4" style={{ color: '#FF5722', fontWeight: 900 }}>
+  Our Articles & Insights
+</h1>
       <PageBanner />
 
       {/* --- INLINE STYLES --- */}
