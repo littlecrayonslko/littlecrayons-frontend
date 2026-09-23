@@ -282,7 +282,7 @@ export default function AboutUsPage() {
       </section>
 
       {/* --- MEET OUR EDUCATORS SECTION --- */}
-      <section className="py-5 bg-white position-relative" style={{borderBottom: `8px solid #F1F5F9`}}>
+      {/* <section className="py-5 bg-white position-relative" style={{borderBottom: `8px solid #F1F5F9`}}>
         <div className="container py-3">
           <div className="text-center mb-5">
              <div className="d-inline-flex align-items-center gap-2 px-3 py-1 rounded-pill mb-2 bg-light border" style={{borderColor: '#10B981', backgroundColor: '#D1FAE5'}}>
@@ -318,7 +318,7 @@ export default function AboutUsPage() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* --- CALL TO ACTION BAR - Kept Same but updated colors and styles --- */}
        <section className="py-5 text-white position-relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #EC4899 0%, #2563EB 100%)' }}>

@@ -43,9 +43,9 @@ export default function Navbar() {
           color: #FFFFFF !important;
         }
 
-        /* --- INDIVIDUAL NAVLINK COLORS --- */
+        /* --- INDIVIDUAL UNIQUE NAVLINK COLORS --- */
         
-        /* 1. Home - Red */
+        /* 1. Home - Crimson Red */
         .custom-navbar .nav-link.menuhome.active-link {
           background-color: #EF4444 !important;
           box-shadow: 0 4px 10px rgba(239, 68, 68, 0.35);
@@ -54,7 +54,7 @@ export default function Navbar() {
           color: #EF4444;
         }
 
-        /* 2. About - Orange */
+        /* 2. About - Tangerine Orange */
         .custom-navbar .nav-link.menuabout.active-link {
           background-color: #F97316 !important;
           box-shadow: 0 4px 10px rgba(249, 115, 22, 0.35);
@@ -63,7 +63,7 @@ export default function Navbar() {
           color: #F97316;
         }
 
-        /* 3. Academics - Purple */
+        /* 3. Academics - Royal Purple */
         .custom-navbar .nav-link.menuacademics.active-link {
           background-color: #8B5CF6 !important;
           box-shadow: 0 4px 10px rgba(139, 92, 246, 0.35);
@@ -90,13 +90,31 @@ export default function Navbar() {
           color: #0EA5E9;
         }
 
-        /* 6. Contact - Pink */
+        /* 6. Blog - Midnight Black */
+        .custom-navbar .nav-link.menublog.active-link {
+          background-color: #0F172A !important;
+          box-shadow: 0 4px 12px rgba(15, 23, 42, 0.4);
+        }
+        .custom-navbar .nav-link.menublog:hover {
+          color: #0F172A;
+        }
+
+        /* 7. Contact - Hot Pink */
         .custom-navbar .nav-link.menucontact.active-link {
           background-color: #EC4899 !important;
           box-shadow: 0 4px 10px rgba(236, 72, 153, 0.35);
         }
         .custom-navbar .nav-link.menucontact:hover {
           color: #EC4899;
+        }
+
+        /* 8. Enquiry - Deep Indigo */
+        .custom-navbar .nav-link.menuenquiry.active-link {
+          background-color: #4F46E5 !important;
+          box-shadow: 0 4px 10px rgba(79, 70, 229, 0.35);
+        }
+        .custom-navbar .nav-link.menuenquiry:hover {
+          color: #4F46E5;
         }
 
         /* --- DROPDOWN MENU STYLES --- */
@@ -201,14 +219,20 @@ export default function Navbar() {
                                             </li>
 
                                             <li className="nav-item">
+                                                <Link className={`nav-link menublog ${isActive('/blog') ? 'active-link' : ''}`} href="/blog">
+                                                    Blog
+                                                </Link>
+                                            </li>
+
+                                            <li className="nav-item">
                                                 <Link className={`nav-link menucontact ${isActive('/contact') ? 'active-link' : ''}`} href="/contact">
                                                     Contact
                                                 </Link>
                                             </li>
 
                                             <li className="nav-item">
-                                                <Link className={`nav-link menucontact ${isActive('/enquiry') ? 'active-link' : ''}`} href="/enquiry">
-                                                    enquiry
+                                                <Link className={`nav-link menuenquiry ${isActive('/enquiry') ? 'active-link' : ''}`} href="/enquiry">
+                                                    Enquiry
                                                 </Link>
                                             </li>
 

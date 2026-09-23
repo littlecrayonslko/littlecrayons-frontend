@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-page-custom-font */
 /* eslint-disable @next/next/no-img-element */
 "use client";
 import Link from 'next/link';
@@ -74,6 +75,10 @@ export default function UKGPage() {
     <div style={{ fontFamily: "'Fredoka', 'Quicksand', system-ui, sans-serif", color: colors.text, backgroundColor: '#FFFDFB' }}>
        <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet" />
       
+      <div className="py-2 text-center text-white fw-semibold small" style={{ backgroundColor: '#1E293B' }}>
+        ✨ Admissions for Academic Year 2026–2027 are now open. <a href="/enquiry" className="text-warning text-decoration-underline ms-2 btn-crayon">Book a Campus Tour</a>
+      </div>
+
       <Navbar />
       
       {/* Dynamic Title Gradient with Preschool colors */}

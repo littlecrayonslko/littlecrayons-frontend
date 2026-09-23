@@ -124,6 +124,10 @@ export default function PlaygroupPage() {
         }
         .wavy-top { top: -49px; transform: rotate(180deg); }
       `}</style>
+
+      <div className="py-2 text-center text-white fw-semibold small" style={{ backgroundColor: '#1E293B' }}>
+        ✨ Admissions for Academic Year 2026–2027 are now open. <a href="/enquiry" className="text-warning text-decoration-underline ms-2 btn-crayon">Book a Campus Tour</a>
+      </div>
       
       <Navbar />
       

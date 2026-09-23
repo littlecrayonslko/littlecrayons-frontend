@@ -122,6 +122,9 @@ export default function ContactPage() {
 
   return (
     <div style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}>
+      <div className="py-2 text-center text-white fw-semibold small" style={{ backgroundColor: '#1E293B' }}>
+        ✨ Admissions for Academic Year 2026–2027 are now open. <a href="/enquiry" className="text-warning text-decoration-underline ms-2 btn-crayon">Book a Campus Tour</a>
+      </div>
       <Navbar />
 
       <section className="py-5 position-relative bg-white">
