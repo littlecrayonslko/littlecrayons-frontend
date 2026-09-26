@@ -243,14 +243,14 @@ export default function GalleryPage() {
         }
       `}</style>
 
-      {/* --- TOP NAVBAR --- */}
-      <Navbar />
-
       {/* --- ANNOUNCEMENT BAR --- */}
       <div className="py-2 text-center text-white fw-bold small shadow-sm" style={{ backgroundColor: '#1E293B', letterSpacing: '0.5px' }}>
-        ✨ Admissions for Academic Year 2026–2027 are now open! 
+        ✨ Admissions for Academic Year 2026–2027 are now open!
         <a href="/contact" className="text-warning text-decoration-underline ms-2 fw-extrabold">Book a Campus Tour &rarr;</a>
       </div>
+
+      {/* --- TOP NAVBAR --- */}
+      <Navbar />
 
       {/* --- HERO SECTION --- */}
       <section className="kids-hero-bg text-white py-5 position-relative">
@@ -301,8 +301,8 @@ export default function GalleryPage() {
           {/* Category Filter Chips */}
           <div className="d-flex flex-wrap justify-content-center gap-3 mb-4">
             {dynamicCategories.map((cat, idx) => {
-              const count = cat === 'All' 
-                ? galleryItems.length 
+              const count = cat === 'All'
+                ? galleryItems.length
                 : galleryItems.filter(i => formatCategory(i.category || i.type || i.tag) === cat).length;
 
               return (
